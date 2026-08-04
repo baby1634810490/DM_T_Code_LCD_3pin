@@ -1,0 +1,783 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="DM_T_Code"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="D:/CodeInClass/LC_Project/DM_T_Code/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/CLion/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/CodeInClass/LC_Project/DM_T_Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="D:/CLion/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/CodeInClass/LC_Project/DM_T_Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/CLion/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/CodeInClass/LC_Project/DM_T_Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/CLion/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/CodeInClass/LC_Project/DM_T_Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="DM_T_Code.elf">
+				<Option output="D:/CodeInClass/LC_Project/DM_T_Code/cmake-build-debug/DM_T_Code.elf" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/CodeInClass/LC_Project/DM_T_Code/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DARM_MATH_CM4"/>
+					<Add option="-DARM_MATH_MATRIX_CHECK"/>
+					<Add option="-DARM_MATH_ROUNDING"/>
+					<Add option="-DDEBUG"/>
+					<Add option="-DUSE_HAL_DRIVER"/>
+					<Add option="-DSTM32H723xx"/>
+					<Add option="-DUSE_PWR_LDO_SUPPLY"/>
+					<Add directory="D:/CodeInClass/LC_Project/DM_T_Code/Core/Inc"/>
+					<Add directory="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Inc"/>
+					<Add directory="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Inc/Legacy"/>
+					<Add directory="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/CMSIS/Device/ST/STM32H7xx/Include"/>
+					<Add directory="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/CMSIS/Include"/>
+					<Add directory="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/Third_Party/FreeRTOS/Source/include"/>
+					<Add directory="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2"/>
+					<Add directory="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F"/>
+					<Add directory="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/ST/ARM/DSP/Inc"/>
+					<Add directory="D:/CodeInClass/LC_Project/DM_T_Code/USB_DEVICE/App"/>
+					<Add directory="D:/CodeInClass/LC_Project/DM_T_Code/USB_DEVICE/Target"/>
+					<Add directory="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/ST/STM32_USB_Device_Library/Core/Inc"/>
+					<Add directory="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc"/>
+					<Add directory="D:/CodeInClass/LC_Project/DM_T_Code/Bsp_User"/>
+					<Add directory="D:/CodeInClass/LC_Project/DM_T_Code/Driver_User"/>
+					<Add directory="D:/CodeInClass/LC_Project/DM_T_Code/Task_User"/>
+					<Add directory="D:/CodeInClass/LC_Project/DM_T_Code/MathFunction_User"/>
+					<Add directory="d:\app\embedded_development_software\arm_gnu_toolchain\10 2021.10\bin\../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/include/c++/10.3.1"/>
+					<Add directory="d:\app\embedded_development_software\arm_gnu_toolchain\10 2021.10\bin\../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/include/c++/10.3.1/arm-none-eabi"/>
+					<Add directory="d:\app\embedded_development_software\arm_gnu_toolchain\10 2021.10\bin\../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/include/c++/10.3.1/backward"/>
+					<Add directory="d:\app\embedded_development_software\arm_gnu_toolchain\10 2021.10\bin\../lib/gcc/arm-none-eabi/10.3.1/include"/>
+					<Add directory="d:\app\embedded_development_software\arm_gnu_toolchain\10 2021.10\bin\../lib/gcc/arm-none-eabi/10.3.1/include-fixed"/>
+					<Add directory="d:\app\embedded_development_software\arm_gnu_toolchain\10 2021.10\bin\../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/CLion/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/CodeInClass/LC_Project/DM_T_Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 DM_T_Code.elf"/>
+					<CompileFile command="D:/CLion/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/CodeInClass/LC_Project/DM_T_Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/CLion/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/CodeInClass/LC_Project/DM_T_Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/CLion/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/CodeInClass/LC_Project/DM_T_Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="DM_T_Code.elf/fast">
+				<Option output="D:/CodeInClass/LC_Project/DM_T_Code/cmake-build-debug/DM_T_Code.elf" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/CodeInClass/LC_Project/DM_T_Code/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DARM_MATH_CM4"/>
+					<Add option="-DARM_MATH_MATRIX_CHECK"/>
+					<Add option="-DARM_MATH_ROUNDING"/>
+					<Add option="-DDEBUG"/>
+					<Add option="-DUSE_HAL_DRIVER"/>
+					<Add option="-DSTM32H723xx"/>
+					<Add option="-DUSE_PWR_LDO_SUPPLY"/>
+					<Add directory="D:/CodeInClass/LC_Project/DM_T_Code/Core/Inc"/>
+					<Add directory="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Inc"/>
+					<Add directory="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Inc/Legacy"/>
+					<Add directory="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/CMSIS/Device/ST/STM32H7xx/Include"/>
+					<Add directory="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/CMSIS/Include"/>
+					<Add directory="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/Third_Party/FreeRTOS/Source/include"/>
+					<Add directory="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2"/>
+					<Add directory="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F"/>
+					<Add directory="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/ST/ARM/DSP/Inc"/>
+					<Add directory="D:/CodeInClass/LC_Project/DM_T_Code/USB_DEVICE/App"/>
+					<Add directory="D:/CodeInClass/LC_Project/DM_T_Code/USB_DEVICE/Target"/>
+					<Add directory="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/ST/STM32_USB_Device_Library/Core/Inc"/>
+					<Add directory="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc"/>
+					<Add directory="D:/CodeInClass/LC_Project/DM_T_Code/Bsp_User"/>
+					<Add directory="D:/CodeInClass/LC_Project/DM_T_Code/Driver_User"/>
+					<Add directory="D:/CodeInClass/LC_Project/DM_T_Code/Task_User"/>
+					<Add directory="D:/CodeInClass/LC_Project/DM_T_Code/MathFunction_User"/>
+					<Add directory="d:\app\embedded_development_software\arm_gnu_toolchain\10 2021.10\bin\../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/include/c++/10.3.1"/>
+					<Add directory="d:\app\embedded_development_software\arm_gnu_toolchain\10 2021.10\bin\../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/include/c++/10.3.1/arm-none-eabi"/>
+					<Add directory="d:\app\embedded_development_software\arm_gnu_toolchain\10 2021.10\bin\../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/include/c++/10.3.1/backward"/>
+					<Add directory="d:\app\embedded_development_software\arm_gnu_toolchain\10 2021.10\bin\../lib/gcc/arm-none-eabi/10.3.1/include"/>
+					<Add directory="d:\app\embedded_development_software\arm_gnu_toolchain\10 2021.10\bin\../lib/gcc/arm-none-eabi/10.3.1/include-fixed"/>
+					<Add directory="d:\app\embedded_development_software\arm_gnu_toolchain\10 2021.10\bin\../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/CLion/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/CodeInClass/LC_Project/DM_T_Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 DM_T_Code.elf/fast"/>
+					<CompileFile command="D:/CLion/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/CodeInClass/LC_Project/DM_T_Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/CLion/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/CodeInClass/LC_Project/DM_T_Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/CLion/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/CodeInClass/LC_Project/DM_T_Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="D:/CodeInClass/LC_Project/DM_T_Code/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/CLion/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/CodeInClass/LC_Project/DM_T_Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="D:/CLion/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/CodeInClass/LC_Project/DM_T_Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/CLion/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/CodeInClass/LC_Project/DM_T_Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/CLion/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/CodeInClass/LC_Project/DM_T_Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="D:/CodeInClass/LC_Project/DM_T_Code/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/CLion/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/CodeInClass/LC_Project/DM_T_Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="D:/CLion/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/CodeInClass/LC_Project/DM_T_Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/CLion/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/CodeInClass/LC_Project/DM_T_Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/CLion/CLion 2023.2.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/CodeInClass/LC_Project/DM_T_Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Bsp_User/bsp_fdcan.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Bsp_User/bsp_fdcan.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Bsp_User/bsp_pwm.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Bsp_User/bsp_pwm.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Bsp_User/bsp_spi.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Bsp_User/bsp_spi.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Bsp_User/bsp_usart.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Bsp_User/bsp_usart.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Core/Inc/FreeRTOSConfig.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Core/Inc/dma.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Core/Inc/fdcan.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Core/Inc/gpio.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Core/Inc/main.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Core/Inc/memorymap.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Core/Inc/spi.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Core/Inc/stm32h7xx_hal_conf.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Core/Inc/stm32h7xx_it.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Core/Inc/tim.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Core/Inc/usart.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Core/Src/dma.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Core/Src/fdcan.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Core/Src/freertos.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Core/Src/gpio.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Core/Src/main.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Core/Src/memorymap.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Core/Src/spi.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Core/Src/stm32h7xx_hal_msp.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Core/Src/stm32h7xx_hal_timebase_tim.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Core/Src/stm32h7xx_it.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Core/Src/syscalls.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Core/Src/sysmem.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Core/Src/system_stm32h7xx.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Core/Src/tim.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Core/Src/usart.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Core/Startup/startup_stm32h723vgtx.s">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Driver_User/driver_dm_motor.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Driver_User/driver_dm_motor.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Driver_User/driver_led.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Driver_User/driver_led.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Driver_User/driver_los.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Driver_User/driver_los.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Driver_User/driver_motor.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Driver_User/driver_motor.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Driver_User/driver_power.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Driver_User/driver_power.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Driver_User/driver_remote.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Driver_User/driver_remote.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Driver_User/driver_rs_motor.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Driver_User/driver_rs_motor.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h723xx.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/CMSIS/Device/ST/STM32H7xx/Include/system_stm32h7xx.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/CMSIS/Device/ST/STM32H7xx/LICENSE.txt">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/CMSIS/Include/cmsis_armcc.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/CMSIS/Include/cmsis_armclang.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/CMSIS/Include/cmsis_armclang_ltm.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/CMSIS/Include/cmsis_compiler.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/CMSIS/Include/cmsis_gcc.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/CMSIS/Include/cmsis_iccarm.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/CMSIS/Include/cmsis_version.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/CMSIS/Include/core_armv81mml.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/CMSIS/Include/core_armv8mbl.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/CMSIS/Include/core_armv8mml.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/CMSIS/Include/core_cm0.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/CMSIS/Include/core_cm0plus.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/CMSIS/Include/core_cm1.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/CMSIS/Include/core_cm23.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/CMSIS/Include/core_cm3.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/CMSIS/Include/core_cm33.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/CMSIS/Include/core_cm35p.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/CMSIS/Include/core_cm4.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/CMSIS/Include/core_cm7.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/CMSIS/Include/core_sc000.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/CMSIS/Include/core_sc300.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/CMSIS/Include/mpu_armv7.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/CMSIS/Include/mpu_armv8.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/CMSIS/Include/tz_context.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/CMSIS/LICENSE.txt">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_cortex.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_dma.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_dma_ex.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_exti.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_fdcan.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash_ex.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_gpio.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_gpio_ex.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_hsem.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_i2c.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_i2c_ex.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_mdma.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pcd.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pcd_ex.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pwr.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pwr_ex.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc_ex.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_spi.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_spi_ex.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_bus.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_cortex.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_crs.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_dma.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_dmamux.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_exti.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_gpio.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_hsem.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_lpuart.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_pwr.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_rcc.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_spi.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_system.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_tim.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_usart.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_usb.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_utils.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/LICENSE.txt">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma_ex.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_exti.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash_ex.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_hsem.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_mdma.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd_ex.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_usb.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/MathFunction_User/convert.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/MathFunction_User/convert.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/MathFunction_User/crc.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/MathFunction_User/crc.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/MathFunction_User/diff.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/MathFunction_User/diff.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/MathFunction_User/pid.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/MathFunction_User/pid.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/ST/ARM/DSP/Inc/arm_math.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc/usbd_cdc.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/ST/STM32_USB_Device_Library/LICENSE.txt">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/Third_Party/ARM/DSP/LICENSE.txt">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/freertos_mpool.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/freertos_os2.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/Third_Party/FreeRTOS/Source/croutine.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/Third_Party/FreeRTOS/Source/include/StackMacros.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/Third_Party/FreeRTOS/Source/include/atomic.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/Third_Party/FreeRTOS/Source/include/croutine.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/Third_Party/FreeRTOS/Source/include/list.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/Third_Party/FreeRTOS/Source/include/message_buffer.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/Third_Party/FreeRTOS/Source/include/mpu_prototypes.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/Third_Party/FreeRTOS/Source/include/portable.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/Third_Party/FreeRTOS/Source/include/queue.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/Third_Party/FreeRTOS/Source/include/stack_macros.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/Third_Party/FreeRTOS/Source/include/stream_buffer.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/Third_Party/FreeRTOS/Source/include/task.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/Third_Party/FreeRTOS/Source/include/timers.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/Third_Party/FreeRTOS/Source/list.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/Third_Party/FreeRTOS/Source/queue.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/Third_Party/FreeRTOS/Source/tasks.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Middlewares/Third_Party/FreeRTOS/Source/timers.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/STM32H723VGTX_FLASH.ld">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Task_User/task_led.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Task_User/task_los.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Task_User/task_motor.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/Task_User/task_remote.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/USB_DEVICE/App/usb_device.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/USB_DEVICE/App/usb_device.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/USB_DEVICE/App/usbd_cdc_if.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/USB_DEVICE/App/usbd_cdc_if.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/USB_DEVICE/App/usbd_desc.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/USB_DEVICE/App/usbd_desc.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/USB_DEVICE/Target/usbd_conf.c">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/USB_DEVICE/Target/usbd_conf.h">
+			<Option target="DM_T_Code.elf"/>
+		</Unit>
+		<Unit filename="D:/CodeInClass/LC_Project/DM_T_Code/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

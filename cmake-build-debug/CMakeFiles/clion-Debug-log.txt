@@ -1,0 +1,5 @@
+"D:\Clion_202601\CLion 2026.1.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "MinGW Makefiles" -S D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin -B D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug
+-- Minimal optimization, debug info included
+-- Configuring done (0.0s)
+-- Generating done (0.1s)
+-- Build files have been written to: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/cmake-build-debug
