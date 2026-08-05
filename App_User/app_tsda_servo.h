@@ -3,8 +3,8 @@
   * @file    app_tsda_servo.h
   * @brief   TSDA Chassis 速度模式重写 - 位置闭环控制与上下限坐标系。
   *
-  * 本阶段在寻限完成基础上建立 [0,-300]mm 用户坐标系，支持位置闭环移动和
-  * 软件限位保护。done模式使用恒定速度 bang-bang 控制，无速度规划器。
+  * 本阶段在寻限完成基础上建立 [0,-300]mm 用户坐标系。自动回位保持固定
+  * 速度，ready=1后的done模式使用MCU浮点速度规划和零速保持回差。
   ******************************************************************************
   */
 
@@ -27,9 +27,12 @@ extern "C" {
 
 /* 位置闭环控制参数 */
 #define TSDA_APP_SOFT_LOWER_LIMIT_MM      (300)   /*!< 软件下限距离(mm)，上限为0，下限为-300。 */
-#define TSDA_APP_POSITION_MOVE_SPEED_RPM  (100)   /*!< 位置移动恒定速度 RPM。 */
-#define TSDA_APP_POSITION_TOLERANCE_MM    (1)     /*!< 位置到位容差(mm)。 */
+#define TSDA_APP_HOME_RETURN_SPEED_RPM    (100)   /*!< 建零后固定速度回到-100mm。 */
+#define TSDA_APP_POSITION_TOLERANCE_MM    (2)     /*!< 自动回位到位容差(mm)。 */
+#define TSDA_APP_STOP_SPEED_RPM           (2)     /*!< 自动回位停稳E4阈值。 */
 #define TSDA_APP_INITIAL_TARGET_MM        (-100)  /*!< 寻限完成后自动下移100mm的目标位置。 */
+#define TSDA_APP_DEFAULT_MAX_SPEED_MM_S   (20.0f) /*!< 对外控制默认最大速度。 */
+#define TSDA_APP_DEFAULT_ACCEL_MM_S2      (80.0f) /*!< 对外控制默认加速度。 */
 
 /**
   * @brief TSDA App 非阻塞状态机。
@@ -60,8 +63,8 @@ typedef enum
 	TSDA_APP_WAIT_HOME_STABLE,              /*!< 停止后等待50ms机械稳定。 */
 	TSDA_APP_SEND_HOME_ZERO_POSITION,       /*!< 停止后重新读取E8/E9。 */
 	TSDA_APP_WAIT_HOME_ZERO_POSITION,       /*!< 保存软件零点或在保护停止后进入ERROR。 */
-	TSDA_APP_HOME_MOVE_RETURN,              /*!< bang-bang恒速向-100移动，到位后置ready。 */
-	TSDA_APP_DONE,                          /*!< done模式：3ms三相周期闭环保持/移动。 */
+	TSDA_APP_HOME_MOVE_RETURN,              /*!< 固定100RPM向-100移动，停稳后置ready。 */
+	TSDA_APP_DONE,                          /*!< done模式：3ms三相周期执行PVP规划。 */
 	TSDA_APP_SEND_ZERO_BEFORE_DISABLE,      /*!< 外部请求失能时先写0RPM。 */
 	TSDA_APP_WAIT_ZERO_BEFORE_DISABLE_ACK,  /*!< 确认零速命令后再失能。 */
 	TSDA_APP_SEND_DISABLE,                  /*!< 写0x00=0失能。 */
@@ -81,8 +84,7 @@ typedef enum
 
 typedef struct
 {
-	uint8_t servo_enable;       /*!< 1=请求使能并重新寻限，0=先零速再失能。 */
-	int32_t target_position_mm; /*!< 目标位置(mm)，范围[-300,0]，0=上限零点，负值=下方。 */
+	uint8_t servo_enable; /*!< 1=请求使能并重新寻限，0=先零速再失能。 */
 } TSDA_Command;
 
 /**
@@ -97,12 +99,13 @@ typedef struct
 	int32_t current_position_raw;        /*!< E8/E9组合得到的驱动器原始位置。 */
 	int32_t homing_start_position_raw;   /*!< 本轮向上寻限开始位置。 */
 	int32_t position_origin_raw;         /*!< 上限停止后记录的软件零点原始位置。 */
-	int32_t current_position_mm;         /*!< 当前位置(mm)，相对上限零点，负值=零点下方。 */
-	int32_t target_position_mm;          /*!< 当前生效的目标位置(mm)。 */
+	float current_height_mm;             /*!< 真实浮点高度(mm)，相对上限零点，向下为负。 */
+	float target_height_mm;              /*!< done状态当前生效的协议目标高度(mm)。 */
 	uint32_t homing_elapsed_ms;          /*!< 本轮向上寻限已运行时间。 */
 	uint32_t homing_travel_raw;          /*!< 当前位置与寻限起点的原始计数差绝对值。 */
 	int16_t output_speed_rpm;            /*!< E4返回的实际有符号转速。 */
 	int16_t commanded_speed_rpm;         /*!< App最后成功交给底层的0x10目标转速。 */
+	float planned_velocity_mm_s;         /*!< PVP内部连续规划速度，用户坐标符号。 */
 	uint8_t online;                      /*!< 启动阶段收到匹配E3回包后锁存为1。 */
 	uint8_t servo_enabled;               /*!< App完成使能稳定期后置1，失能后清0。 */
 	uint8_t ready;                       /*!< 正常目标控制开放标志，寻限建立零点后置1。 */
@@ -110,12 +113,30 @@ typedef struct
 	uint8_t lower_limit_active;          /*!< 0x58 data[4]归一化结果：1=下限触发。 */
 	uint8_t homing_done;                 /*!< 最终零点位置读取并保存成功后置1。 */
 	uint8_t run_send_phase;              /*!< 三相节拍索引，按0、1、2循环。 */
+	uint8_t motion_hold_active;           /*!< 1=处于2mm进入、3mm退出的零速保持。 */
 	TSDA_AppError error_code;            /*!< 锁存的状态机错误原因。 */
 } TSDA_Status;
+
+/** @brief 通信层写入的滑台控制字段；ready=1后按3ms周期实时生效。 */
+typedef struct
+{
+	float target_height_mm;      /*!< 绝对目标高度(mm)，App钳位到[-300,0]。 */
+	float max_speed_mm_s;        /*!< 最大速度(mm/s)，合法性由通信层保证。 */
+	float acceleration_mm_s2;    /*!< 加速度(mm/s^2)，加减速共用。 */
+} TSDA_SlideControl;
+
+/** @brief 通信层读取的滑台反馈；ready=0时两个字段都保持0。 */
+typedef struct
+{
+	float current_height_mm;     /*!< 真实高度，不隐藏短暂的软件边界过冲。 */
+	float current_speed_mm_s;    /*!< 用户坐标速度：向上为正、向下为负。 */
+} TSDA_SlideFeedback;
 
 extern volatile TSDA_Command tsda_command;
 extern volatile TSDA_Status tsda_status;
 extern volatile TSDA_AppState tsda_app_state;
+extern volatile TSDA_SlideControl tsda_slide_control;
+extern volatile TSDA_SlideFeedback tsda_slide_feedback;
 
 /**
   * @brief 初始化 App、清空诊断状态并从上电等待状态开始。
@@ -132,7 +153,7 @@ void TSDA_AppUpdate(uint32_t now_ms);
   * @brief 写入目标高度(mm)，超出[-300,0]范围自动钳位到边界。
   * @note 仅当 ready=1（寻限完成）后生效；done模式每拍按此目标计算速度方向。
   */
-void TSDA_AppSetTargetHeightMm(int32_t target_mm);
+void TSDA_AppSetTargetHeightMm(float target_mm);
 
 /**
   * @brief CAN1接收中断的唯一TSDA入口，只复制完整8字节帧到环形队列。

@@ -85,10 +85,24 @@ CMakeFiles/DM_T_Code.elf.dir/App_User/app_tsda_servo.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/DM_T_Code.elf.dir/App_User/app_tsda_servo.c.s"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\App_User\app_tsda_servo.c -o CMakeFiles\DM_T_Code.elf.dir\App_User\app_tsda_servo.c.s
 
+CMakeFiles/DM_T_Code.elf.dir/App_User/tsda_slide_motion.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
+CMakeFiles/DM_T_Code.elf.dir/App_User/tsda_slide_motion.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/App_User/tsda_slide_motion.c
+CMakeFiles/DM_T_Code.elf.dir/App_User/tsda_slide_motion.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/DM_T_Code.elf.dir/App_User/tsda_slide_motion.c.obj"
+	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/App_User/tsda_slide_motion.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\App_User\tsda_slide_motion.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\App_User\tsda_slide_motion.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\App_User\tsda_slide_motion.c
+
+CMakeFiles/DM_T_Code.elf.dir/App_User/tsda_slide_motion.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/DM_T_Code.elf.dir/App_User/tsda_slide_motion.c.i"
+	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\App_User\tsda_slide_motion.c > CMakeFiles\DM_T_Code.elf.dir\App_User\tsda_slide_motion.c.i
+
+CMakeFiles/DM_T_Code.elf.dir/App_User/tsda_slide_motion.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/DM_T_Code.elf.dir/App_User/tsda_slide_motion.c.s"
+	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\App_User\tsda_slide_motion.c -o CMakeFiles\DM_T_Code.elf.dir\App_User\tsda_slide_motion.c.s
+
 CMakeFiles/DM_T_Code.elf.dir/Bsp_User/bsp_fdcan.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Bsp_User/bsp_fdcan.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Bsp_User/bsp_fdcan.c
 CMakeFiles/DM_T_Code.elf.dir/Bsp_User/bsp_fdcan.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/DM_T_Code.elf.dir/Bsp_User/bsp_fdcan.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/DM_T_Code.elf.dir/Bsp_User/bsp_fdcan.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Bsp_User/bsp_fdcan.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Bsp_User\bsp_fdcan.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Bsp_User\bsp_fdcan.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Bsp_User\bsp_fdcan.c
 
 CMakeFiles/DM_T_Code.elf.dir/Bsp_User/bsp_fdcan.c.i: cmake_force
@@ -102,7 +116,7 @@ CMakeFiles/DM_T_Code.elf.dir/Bsp_User/bsp_fdcan.c.s: cmake_force
 CMakeFiles/DM_T_Code.elf.dir/Bsp_User/bsp_pwm.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Bsp_User/bsp_pwm.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Bsp_User/bsp_pwm.c
 CMakeFiles/DM_T_Code.elf.dir/Bsp_User/bsp_pwm.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/DM_T_Code.elf.dir/Bsp_User/bsp_pwm.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/DM_T_Code.elf.dir/Bsp_User/bsp_pwm.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Bsp_User/bsp_pwm.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Bsp_User\bsp_pwm.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Bsp_User\bsp_pwm.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Bsp_User\bsp_pwm.c
 
 CMakeFiles/DM_T_Code.elf.dir/Bsp_User/bsp_pwm.c.i: cmake_force
@@ -116,7 +130,7 @@ CMakeFiles/DM_T_Code.elf.dir/Bsp_User/bsp_pwm.c.s: cmake_force
 CMakeFiles/DM_T_Code.elf.dir/Bsp_User/bsp_spi.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Bsp_User/bsp_spi.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Bsp_User/bsp_spi.c
 CMakeFiles/DM_T_Code.elf.dir/Bsp_User/bsp_spi.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/DM_T_Code.elf.dir/Bsp_User/bsp_spi.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/DM_T_Code.elf.dir/Bsp_User/bsp_spi.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Bsp_User/bsp_spi.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Bsp_User\bsp_spi.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Bsp_User\bsp_spi.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Bsp_User\bsp_spi.c
 
 CMakeFiles/DM_T_Code.elf.dir/Bsp_User/bsp_spi.c.i: cmake_force
@@ -130,7 +144,7 @@ CMakeFiles/DM_T_Code.elf.dir/Bsp_User/bsp_spi.c.s: cmake_force
 CMakeFiles/DM_T_Code.elf.dir/Bsp_User/bsp_usart.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Bsp_User/bsp_usart.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Bsp_User/bsp_usart.c
 CMakeFiles/DM_T_Code.elf.dir/Bsp_User/bsp_usart.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/DM_T_Code.elf.dir/Bsp_User/bsp_usart.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/DM_T_Code.elf.dir/Bsp_User/bsp_usart.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Bsp_User/bsp_usart.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Bsp_User\bsp_usart.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Bsp_User\bsp_usart.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Bsp_User\bsp_usart.c
 
 CMakeFiles/DM_T_Code.elf.dir/Bsp_User/bsp_usart.c.i: cmake_force
@@ -144,7 +158,7 @@ CMakeFiles/DM_T_Code.elf.dir/Bsp_User/bsp_usart.c.s: cmake_force
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/dma.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/dma.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Core/Src/dma.c
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/dma.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/DM_T_Code.elf.dir/Core/Src/dma.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/DM_T_Code.elf.dir/Core/Src/dma.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Core/Src/dma.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Core\Src\dma.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Core\Src\dma.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Core\Src\dma.c
 
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/dma.c.i: cmake_force
@@ -158,7 +172,7 @@ CMakeFiles/DM_T_Code.elf.dir/Core/Src/dma.c.s: cmake_force
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/fdcan.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/fdcan.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Core/Src/fdcan.c
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/fdcan.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/DM_T_Code.elf.dir/Core/Src/fdcan.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/DM_T_Code.elf.dir/Core/Src/fdcan.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Core/Src/fdcan.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Core\Src\fdcan.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Core\Src\fdcan.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Core\Src\fdcan.c
 
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/fdcan.c.i: cmake_force
@@ -172,7 +186,7 @@ CMakeFiles/DM_T_Code.elf.dir/Core/Src/fdcan.c.s: cmake_force
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/freertos.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/freertos.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Core/Src/freertos.c
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/freertos.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/DM_T_Code.elf.dir/Core/Src/freertos.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/DM_T_Code.elf.dir/Core/Src/freertos.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Core/Src/freertos.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Core\Src\freertos.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Core\Src\freertos.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Core\Src\freertos.c
 
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/freertos.c.i: cmake_force
@@ -186,7 +200,7 @@ CMakeFiles/DM_T_Code.elf.dir/Core/Src/freertos.c.s: cmake_force
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/gpio.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/gpio.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Core/Src/gpio.c
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/gpio.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/DM_T_Code.elf.dir/Core/Src/gpio.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/DM_T_Code.elf.dir/Core/Src/gpio.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Core/Src/gpio.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Core\Src\gpio.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Core\Src\gpio.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Core\Src\gpio.c
 
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/gpio.c.i: cmake_force
@@ -200,7 +214,7 @@ CMakeFiles/DM_T_Code.elf.dir/Core/Src/gpio.c.s: cmake_force
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/main.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/main.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Core/Src/main.c
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/main.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/DM_T_Code.elf.dir/Core/Src/main.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/DM_T_Code.elf.dir/Core/Src/main.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Core/Src/main.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Core\Src\main.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Core\Src\main.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Core\Src\main.c
 
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/main.c.i: cmake_force
@@ -214,7 +228,7 @@ CMakeFiles/DM_T_Code.elf.dir/Core/Src/main.c.s: cmake_force
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/memorymap.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/memorymap.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Core/Src/memorymap.c
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/memorymap.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/DM_T_Code.elf.dir/Core/Src/memorymap.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/DM_T_Code.elf.dir/Core/Src/memorymap.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Core/Src/memorymap.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Core\Src\memorymap.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Core\Src\memorymap.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Core\Src\memorymap.c
 
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/memorymap.c.i: cmake_force
@@ -228,7 +242,7 @@ CMakeFiles/DM_T_Code.elf.dir/Core/Src/memorymap.c.s: cmake_force
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/spi.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/spi.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Core/Src/spi.c
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/spi.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/DM_T_Code.elf.dir/Core/Src/spi.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/DM_T_Code.elf.dir/Core/Src/spi.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Core/Src/spi.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Core\Src\spi.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Core\Src\spi.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Core\Src\spi.c
 
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/spi.c.i: cmake_force
@@ -242,7 +256,7 @@ CMakeFiles/DM_T_Code.elf.dir/Core/Src/spi.c.s: cmake_force
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/stm32h7xx_hal_msp.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/stm32h7xx_hal_msp.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Core/Src/stm32h7xx_hal_msp.c
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/stm32h7xx_hal_msp.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/DM_T_Code.elf.dir/Core/Src/stm32h7xx_hal_msp.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/DM_T_Code.elf.dir/Core/Src/stm32h7xx_hal_msp.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Core/Src/stm32h7xx_hal_msp.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Core\Src\stm32h7xx_hal_msp.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Core\Src\stm32h7xx_hal_msp.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Core\Src\stm32h7xx_hal_msp.c
 
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/stm32h7xx_hal_msp.c.i: cmake_force
@@ -256,7 +270,7 @@ CMakeFiles/DM_T_Code.elf.dir/Core/Src/stm32h7xx_hal_msp.c.s: cmake_force
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/stm32h7xx_hal_timebase_tim.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/stm32h7xx_hal_timebase_tim.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Core/Src/stm32h7xx_hal_timebase_tim.c
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/stm32h7xx_hal_timebase_tim.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/DM_T_Code.elf.dir/Core/Src/stm32h7xx_hal_timebase_tim.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/DM_T_Code.elf.dir/Core/Src/stm32h7xx_hal_timebase_tim.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Core/Src/stm32h7xx_hal_timebase_tim.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Core\Src\stm32h7xx_hal_timebase_tim.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Core\Src\stm32h7xx_hal_timebase_tim.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Core\Src\stm32h7xx_hal_timebase_tim.c
 
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/stm32h7xx_hal_timebase_tim.c.i: cmake_force
@@ -270,7 +284,7 @@ CMakeFiles/DM_T_Code.elf.dir/Core/Src/stm32h7xx_hal_timebase_tim.c.s: cmake_forc
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/stm32h7xx_it.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/stm32h7xx_it.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Core/Src/stm32h7xx_it.c
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/stm32h7xx_it.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/DM_T_Code.elf.dir/Core/Src/stm32h7xx_it.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/DM_T_Code.elf.dir/Core/Src/stm32h7xx_it.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Core/Src/stm32h7xx_it.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Core\Src\stm32h7xx_it.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Core\Src\stm32h7xx_it.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Core\Src\stm32h7xx_it.c
 
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/stm32h7xx_it.c.i: cmake_force
@@ -284,7 +298,7 @@ CMakeFiles/DM_T_Code.elf.dir/Core/Src/stm32h7xx_it.c.s: cmake_force
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/syscalls.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/syscalls.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Core/Src/syscalls.c
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/syscalls.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/DM_T_Code.elf.dir/Core/Src/syscalls.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/DM_T_Code.elf.dir/Core/Src/syscalls.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Core/Src/syscalls.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Core\Src\syscalls.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Core\Src\syscalls.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Core\Src\syscalls.c
 
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/syscalls.c.i: cmake_force
@@ -298,7 +312,7 @@ CMakeFiles/DM_T_Code.elf.dir/Core/Src/syscalls.c.s: cmake_force
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/sysmem.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/sysmem.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Core/Src/sysmem.c
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/sysmem.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/DM_T_Code.elf.dir/Core/Src/sysmem.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/DM_T_Code.elf.dir/Core/Src/sysmem.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Core/Src/sysmem.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Core\Src\sysmem.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Core\Src\sysmem.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Core\Src\sysmem.c
 
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/sysmem.c.i: cmake_force
@@ -312,7 +326,7 @@ CMakeFiles/DM_T_Code.elf.dir/Core/Src/sysmem.c.s: cmake_force
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/system_stm32h7xx.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/system_stm32h7xx.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Core/Src/system_stm32h7xx.c
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/system_stm32h7xx.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/DM_T_Code.elf.dir/Core/Src/system_stm32h7xx.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/DM_T_Code.elf.dir/Core/Src/system_stm32h7xx.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Core/Src/system_stm32h7xx.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Core\Src\system_stm32h7xx.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Core\Src\system_stm32h7xx.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Core\Src\system_stm32h7xx.c
 
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/system_stm32h7xx.c.i: cmake_force
@@ -326,7 +340,7 @@ CMakeFiles/DM_T_Code.elf.dir/Core/Src/system_stm32h7xx.c.s: cmake_force
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/tim.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/tim.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Core/Src/tim.c
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/tim.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/DM_T_Code.elf.dir/Core/Src/tim.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/DM_T_Code.elf.dir/Core/Src/tim.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Core/Src/tim.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Core\Src\tim.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Core\Src\tim.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Core\Src\tim.c
 
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/tim.c.i: cmake_force
@@ -340,7 +354,7 @@ CMakeFiles/DM_T_Code.elf.dir/Core/Src/tim.c.s: cmake_force
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/usart.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/usart.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Core/Src/usart.c
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/usart.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/DM_T_Code.elf.dir/Core/Src/usart.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/DM_T_Code.elf.dir/Core/Src/usart.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Core/Src/usart.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Core\Src\usart.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Core\Src\usart.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Core\Src\usart.c
 
 CMakeFiles/DM_T_Code.elf.dir/Core/Src/usart.c.i: cmake_force
@@ -353,7 +367,7 @@ CMakeFiles/DM_T_Code.elf.dir/Core/Src/usart.c.s: cmake_force
 
 CMakeFiles/DM_T_Code.elf.dir/Core/Startup/startup_stm32h723vgtx.s.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Core/Startup/startup_stm32h723vgtx.s.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Core/Startup/startup_stm32h723vgtx.s
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building ASM object CMakeFiles/DM_T_Code.elf.dir/Core/Startup/startup_stm32h723vgtx.s.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building ASM object CMakeFiles/DM_T_Code.elf.dir/Core/Startup/startup_stm32h723vgtx.s.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles\DM_T_Code.elf.dir\Core\Startup\startup_stm32h723vgtx.s.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Core\Startup\startup_stm32h723vgtx.s
 
 CMakeFiles/DM_T_Code.elf.dir/Core/Startup/startup_stm32h723vgtx.s.i: cmake_force
@@ -367,7 +381,7 @@ CMakeFiles/DM_T_Code.elf.dir/Core/Startup/startup_stm32h723vgtx.s.s: cmake_force
 CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_dm_motor.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_dm_motor.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Driver_User/driver_dm_motor.c
 CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_dm_motor.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_dm_motor.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_dm_motor.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_dm_motor.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Driver_User\driver_dm_motor.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Driver_User\driver_dm_motor.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Driver_User\driver_dm_motor.c
 
 CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_dm_motor.c.i: cmake_force
@@ -381,7 +395,7 @@ CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_dm_motor.c.s: cmake_force
 CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_led.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_led.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Driver_User/driver_led.c
 CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_led.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_led.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_led.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_led.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Driver_User\driver_led.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Driver_User\driver_led.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Driver_User\driver_led.c
 
 CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_led.c.i: cmake_force
@@ -395,7 +409,7 @@ CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_led.c.s: cmake_force
 CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_los.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_los.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Driver_User/driver_los.c
 CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_los.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_los.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building C object CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_los.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_los.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Driver_User\driver_los.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Driver_User\driver_los.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Driver_User\driver_los.c
 
 CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_los.c.i: cmake_force
@@ -409,7 +423,7 @@ CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_los.c.s: cmake_force
 CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_motor.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_motor.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Driver_User/driver_motor.c
 CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_motor.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building C object CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_motor.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building C object CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_motor.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_motor.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Driver_User\driver_motor.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Driver_User\driver_motor.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Driver_User\driver_motor.c
 
 CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_motor.c.i: cmake_force
@@ -423,7 +437,7 @@ CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_motor.c.s: cmake_force
 CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_power.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_power.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Driver_User/driver_power.c
 CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_power.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building C object CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_power.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building C object CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_power.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_power.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Driver_User\driver_power.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Driver_User\driver_power.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Driver_User\driver_power.c
 
 CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_power.c.i: cmake_force
@@ -437,7 +451,7 @@ CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_power.c.s: cmake_force
 CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_remote.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_remote.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Driver_User/driver_remote.c
 CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_remote.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building C object CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_remote.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building C object CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_remote.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_remote.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Driver_User\driver_remote.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Driver_User\driver_remote.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Driver_User\driver_remote.c
 
 CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_remote.c.i: cmake_force
@@ -451,7 +465,7 @@ CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_remote.c.s: cmake_force
 CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_rs_motor.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_rs_motor.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Driver_User/driver_rs_motor.c
 CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_rs_motor.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building C object CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_rs_motor.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building C object CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_rs_motor.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_rs_motor.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Driver_User\driver_rs_motor.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Driver_User\driver_rs_motor.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Driver_User\driver_rs_motor.c
 
 CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_rs_motor.c.i: cmake_force
@@ -465,7 +479,7 @@ CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_rs_motor.c.s: cmake_force
 CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_tsda_servo.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_tsda_servo.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Driver_User/driver_tsda_servo.c
 CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_tsda_servo.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building C object CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_tsda_servo.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building C object CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_tsda_servo.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_tsda_servo.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Driver_User\driver_tsda_servo.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Driver_User\driver_tsda_servo.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Driver_User\driver_tsda_servo.c
 
 CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_tsda_servo.c.i: cmake_force
@@ -479,7 +493,7 @@ CMakeFiles/DM_T_Code.elf.dir/Driver_User/driver_tsda_servo.c.s: cmake_force
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building C object CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building C object CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal.c
 
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c.i: cmake_force
@@ -493,7 +507,7 @@ CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c.s:
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.c
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building C object CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building C object CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_cortex.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_cortex.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_cortex.c
 
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.c.i: cmake_force
@@ -507,7 +521,7 @@ CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cort
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.c
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building C object CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building C object CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_dma.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_dma.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_dma.c
 
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.c.i: cmake_force
@@ -521,7 +535,7 @@ CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma_ex.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma_ex.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma_ex.c
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma_ex.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building C object CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma_ex.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building C object CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma_ex.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma_ex.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_dma_ex.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_dma_ex.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_dma_ex.c
 
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma_ex.c.i: cmake_force
@@ -535,7 +549,7 @@ CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma_
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_exti.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_exti.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_exti.c
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_exti.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building C object CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_exti.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building C object CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_exti.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_exti.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_exti.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_exti.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_exti.c
 
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_exti.c.i: cmake_force
@@ -549,7 +563,7 @@ CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_exti
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building C object CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building C object CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_fdcan.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_fdcan.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_fdcan.c
 
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.i: cmake_force
@@ -563,7 +577,7 @@ CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdca
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash.c
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building C object CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building C object CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_flash.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_flash.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_flash.c
 
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash.c.i: cmake_force
@@ -577,7 +591,7 @@ CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flas
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash_ex.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash_ex.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash_ex.c
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash_ex.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building C object CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash_ex.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building C object CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash_ex.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash_ex.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_flash_ex.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_flash_ex.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_flash_ex.c
 
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash_ex.c.i: cmake_force
@@ -591,7 +605,7 @@ CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flas
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.c
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building C object CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building C object CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_gpio.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_gpio.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_gpio.c
 
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.c.i: cmake_force
@@ -605,7 +619,7 @@ CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_hsem.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_hsem.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_hsem.c
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_hsem.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building C object CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_hsem.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building C object CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_hsem.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_hsem.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_hsem.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_hsem.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_hsem.c
 
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_hsem.c.i: cmake_force
@@ -619,7 +633,7 @@ CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_hsem
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building C object CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building C object CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_i2c.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_i2c.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_i2c.c
 
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c.i: cmake_force
@@ -633,7 +647,7 @@ CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building C object CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building C object CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_i2c_ex.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_i2c_ex.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_i2c_ex.c
 
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c.i: cmake_force
@@ -647,7 +661,7 @@ CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_mdma.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_mdma.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_mdma.c
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_mdma.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building C object CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_mdma.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building C object CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_mdma.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_mdma.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_mdma.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_mdma.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_mdma.c
 
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_mdma.c.i: cmake_force
@@ -661,7 +675,7 @@ CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_mdma
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd.c
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building C object CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building C object CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_pcd.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_pcd.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_pcd.c
 
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd.c.i: cmake_force
@@ -675,7 +689,7 @@ CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd.
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd_ex.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd_ex.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd_ex.c
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd_ex.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building C object CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd_ex.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building C object CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd_ex.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd_ex.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_pcd_ex.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_pcd_ex.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_pcd_ex.c
 
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd_ex.c.i: cmake_force
@@ -689,7 +703,7 @@ CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd_
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr.c
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building C object CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building C object CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_pwr.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_pwr.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_pwr.c
 
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr.c.i: cmake_force
@@ -703,7 +717,7 @@ CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr.
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.c
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building C object CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building C object CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_pwr_ex.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_pwr_ex.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_pwr_ex.c
 
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.c.i: cmake_force
@@ -717,7 +731,7 @@ CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.c
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building C object CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building C object CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_rcc.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_rcc.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_rcc.c
 
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.c.i: cmake_force
@@ -731,7 +745,7 @@ CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building C object CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building C object CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_rcc_ex.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_rcc_ex.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_rcc_ex.c
 
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c.i: cmake_force
@@ -745,7 +759,7 @@ CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building C object CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building C object CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_spi.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_spi.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_spi.c
 
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c.i: cmake_force
@@ -759,7 +773,7 @@ CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building C object CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building C object CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_spi_ex.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_spi_ex.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_spi_ex.c
 
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c.i: cmake_force
@@ -773,7 +787,7 @@ CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building C object CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building C object CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_tim.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_tim.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_tim.c
 
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c.i: cmake_force
@@ -787,7 +801,7 @@ CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building C object CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building C object CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_tim_ex.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_tim_ex.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_tim_ex.c
 
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c.i: cmake_force
@@ -801,7 +815,7 @@ CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building C object CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building C object CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_uart.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_uart.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_uart.c
 
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c.i: cmake_force
@@ -815,7 +829,7 @@ CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.c
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building C object CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building C object CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_uart_ex.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_uart_ex.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_uart_ex.c
 
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.c.i: cmake_force
@@ -829,7 +843,7 @@ CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_usb.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_usb.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_usb.c
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_usb.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building C object CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_usb.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building C object CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_usb.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_usb.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_ll_usb.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_ll_usb.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_ll_usb.c
 
 CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_usb.c.i: cmake_force
@@ -843,7 +857,7 @@ CMakeFiles/DM_T_Code.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_usb.c
 CMakeFiles/DM_T_Code.elf.dir/MathFunction_User/convert.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/MathFunction_User/convert.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/MathFunction_User/convert.c
 CMakeFiles/DM_T_Code.elf.dir/MathFunction_User/convert.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building C object CMakeFiles/DM_T_Code.elf.dir/MathFunction_User/convert.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Building C object CMakeFiles/DM_T_Code.elf.dir/MathFunction_User/convert.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/MathFunction_User/convert.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\MathFunction_User\convert.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\MathFunction_User\convert.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\MathFunction_User\convert.c
 
 CMakeFiles/DM_T_Code.elf.dir/MathFunction_User/convert.c.i: cmake_force
@@ -857,7 +871,7 @@ CMakeFiles/DM_T_Code.elf.dir/MathFunction_User/convert.c.s: cmake_force
 CMakeFiles/DM_T_Code.elf.dir/MathFunction_User/crc.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/MathFunction_User/crc.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/MathFunction_User/crc.c
 CMakeFiles/DM_T_Code.elf.dir/MathFunction_User/crc.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Building C object CMakeFiles/DM_T_Code.elf.dir/MathFunction_User/crc.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Building C object CMakeFiles/DM_T_Code.elf.dir/MathFunction_User/crc.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/MathFunction_User/crc.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\MathFunction_User\crc.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\MathFunction_User\crc.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\MathFunction_User\crc.c
 
 CMakeFiles/DM_T_Code.elf.dir/MathFunction_User/crc.c.i: cmake_force
@@ -871,7 +885,7 @@ CMakeFiles/DM_T_Code.elf.dir/MathFunction_User/crc.c.s: cmake_force
 CMakeFiles/DM_T_Code.elf.dir/MathFunction_User/diff.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/MathFunction_User/diff.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/MathFunction_User/diff.c
 CMakeFiles/DM_T_Code.elf.dir/MathFunction_User/diff.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Building C object CMakeFiles/DM_T_Code.elf.dir/MathFunction_User/diff.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_59) "Building C object CMakeFiles/DM_T_Code.elf.dir/MathFunction_User/diff.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/MathFunction_User/diff.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\MathFunction_User\diff.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\MathFunction_User\diff.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\MathFunction_User\diff.c
 
 CMakeFiles/DM_T_Code.elf.dir/MathFunction_User/diff.c.i: cmake_force
@@ -885,7 +899,7 @@ CMakeFiles/DM_T_Code.elf.dir/MathFunction_User/diff.c.s: cmake_force
 CMakeFiles/DM_T_Code.elf.dir/MathFunction_User/pid.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/MathFunction_User/pid.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/MathFunction_User/pid.c
 CMakeFiles/DM_T_Code.elf.dir/MathFunction_User/pid.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_59) "Building C object CMakeFiles/DM_T_Code.elf.dir/MathFunction_User/pid.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_60) "Building C object CMakeFiles/DM_T_Code.elf.dir/MathFunction_User/pid.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/MathFunction_User/pid.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\MathFunction_User\pid.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\MathFunction_User\pid.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\MathFunction_User\pid.c
 
 CMakeFiles/DM_T_Code.elf.dir/MathFunction_User/pid.c.i: cmake_force
@@ -899,7 +913,7 @@ CMakeFiles/DM_T_Code.elf.dir/MathFunction_User/pid.c.s: cmake_force
 CMakeFiles/DM_T_Code.elf.dir/MathFunction_User/position_velocity_planner.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/MathFunction_User/position_velocity_planner.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/MathFunction_User/position_velocity_planner.c
 CMakeFiles/DM_T_Code.elf.dir/MathFunction_User/position_velocity_planner.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_60) "Building C object CMakeFiles/DM_T_Code.elf.dir/MathFunction_User/position_velocity_planner.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_61) "Building C object CMakeFiles/DM_T_Code.elf.dir/MathFunction_User/position_velocity_planner.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/MathFunction_User/position_velocity_planner.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\MathFunction_User\position_velocity_planner.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\MathFunction_User\position_velocity_planner.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\MathFunction_User\position_velocity_planner.c
 
 CMakeFiles/DM_T_Code.elf.dir/MathFunction_User/position_velocity_planner.c.i: cmake_force
@@ -913,7 +927,7 @@ CMakeFiles/DM_T_Code.elf.dir/MathFunction_User/position_velocity_planner.c.s: cm
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_61) "Building C object CMakeFiles/DM_T_Code.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_62) "Building C object CMakeFiles/DM_T_Code.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Middlewares\ST\STM32_USB_Device_Library\Class\CDC\Src\usbd_cdc.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Middlewares\ST\STM32_USB_Device_Library\Class\CDC\Src\usbd_cdc.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Middlewares\ST\STM32_USB_Device_Library\Class\CDC\Src\usbd_cdc.c
 
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c.i: cmake_force
@@ -927,7 +941,7 @@ CMakeFiles/DM_T_Code.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/S
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_62) "Building C object CMakeFiles/DM_T_Code.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_63) "Building C object CMakeFiles/DM_T_Code.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Middlewares\ST\STM32_USB_Device_Library\Core\Src\usbd_core.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Middlewares\ST\STM32_USB_Device_Library\Core\Src\usbd_core.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Middlewares\ST\STM32_USB_Device_Library\Core\Src\usbd_core.c
 
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c.i: cmake_force
@@ -941,7 +955,7 @@ CMakeFiles/DM_T_Code.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/us
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_63) "Building C object CMakeFiles/DM_T_Code.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_64) "Building C object CMakeFiles/DM_T_Code.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Middlewares\ST\STM32_USB_Device_Library\Core\Src\usbd_ctlreq.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Middlewares\ST\STM32_USB_Device_Library\Core\Src\usbd_ctlreq.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Middlewares\ST\STM32_USB_Device_Library\Core\Src\usbd_ctlreq.c
 
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c.i: cmake_force
@@ -955,7 +969,7 @@ CMakeFiles/DM_T_Code.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/us
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_64) "Building C object CMakeFiles/DM_T_Code.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_65) "Building C object CMakeFiles/DM_T_Code.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Middlewares\ST\STM32_USB_Device_Library\Core\Src\usbd_ioreq.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Middlewares\ST\STM32_USB_Device_Library\Core\Src\usbd_ioreq.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Middlewares\ST\STM32_USB_Device_Library\Core\Src\usbd_ioreq.c
 
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c.i: cmake_force
@@ -969,7 +983,7 @@ CMakeFiles/DM_T_Code.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/us
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_65) "Building C object CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_66) "Building C object CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS_V2\cmsis_os2.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS_V2\cmsis_os2.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS_V2\cmsis_os2.c
 
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.i: cmake_force
@@ -983,7 +997,7 @@ CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Middlewares/Third_Party/FreeRTOS/Source/croutine.c
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_66) "Building C object CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Building C object CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Middlewares\Third_Party\FreeRTOS\Source\croutine.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Middlewares\Third_Party\FreeRTOS\Source\croutine.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Middlewares\Third_Party\FreeRTOS\Source\croutine.c
 
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.i: cmake_force
@@ -997,7 +1011,7 @@ CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Building C object CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Building C object CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Middlewares\Third_Party\FreeRTOS\Source\event_groups.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Middlewares\Third_Party\FreeRTOS\Source\event_groups.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Middlewares\Third_Party\FreeRTOS\Source\event_groups.c
 
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.i: cmake_force
@@ -1011,7 +1025,7 @@ CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/event_group
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Middlewares/Third_Party/FreeRTOS/Source/list.c
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Building C object CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_69) "Building C object CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Middlewares\Third_Party\FreeRTOS\Source\list.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Middlewares\Third_Party\FreeRTOS\Source\list.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Middlewares\Third_Party\FreeRTOS\Source\list.c
 
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.i: cmake_force
@@ -1025,7 +1039,7 @@ CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.s: c
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_69) "Building C object CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_70) "Building C object CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM4F\port.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM4F\port.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM4F\port.c
 
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.i: cmake_force
@@ -1039,7 +1053,7 @@ CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GC
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_70) "Building C object CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_71) "Building C object CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Middlewares\Third_Party\FreeRTOS\Source\portable\MemMang\heap_4.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Middlewares\Third_Party\FreeRTOS\Source\portable\MemMang\heap_4.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Middlewares\Third_Party\FreeRTOS\Source\portable\MemMang\heap_4.c
 
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.i: cmake_force
@@ -1053,7 +1067,7 @@ CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/Me
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Middlewares/Third_Party/FreeRTOS/Source/queue.c
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_71) "Building C object CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_72) "Building C object CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Middlewares\Third_Party\FreeRTOS\Source\queue.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Middlewares\Third_Party\FreeRTOS\Source\queue.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Middlewares\Third_Party\FreeRTOS\Source\queue.c
 
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.i: cmake_force
@@ -1067,7 +1081,7 @@ CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.s: 
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_72) "Building C object CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_73) "Building C object CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Middlewares\Third_Party\FreeRTOS\Source\stream_buffer.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Middlewares\Third_Party\FreeRTOS\Source\stream_buffer.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Middlewares\Third_Party\FreeRTOS\Source\stream_buffer.c
 
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.i: cmake_force
@@ -1081,7 +1095,7 @@ CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/stream_buff
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Middlewares/Third_Party/FreeRTOS/Source/tasks.c
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_73) "Building C object CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_74) "Building C object CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Middlewares\Third_Party\FreeRTOS\Source\tasks.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Middlewares\Third_Party\FreeRTOS\Source\tasks.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Middlewares\Third_Party\FreeRTOS\Source\tasks.c
 
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.i: cmake_force
@@ -1095,7 +1109,7 @@ CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.s: 
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Middlewares/Third_Party/FreeRTOS/Source/timers.c
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_74) "Building C object CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_75) "Building C object CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Middlewares\Third_Party\FreeRTOS\Source\timers.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Middlewares\Third_Party\FreeRTOS\Source\timers.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Middlewares\Third_Party\FreeRTOS\Source\timers.c
 
 CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c.i: cmake_force
@@ -1109,7 +1123,7 @@ CMakeFiles/DM_T_Code.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c.s:
 CMakeFiles/DM_T_Code.elf.dir/Task_User/task_led.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Task_User/task_led.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Task_User/task_led.c
 CMakeFiles/DM_T_Code.elf.dir/Task_User/task_led.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_75) "Building C object CMakeFiles/DM_T_Code.elf.dir/Task_User/task_led.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_76) "Building C object CMakeFiles/DM_T_Code.elf.dir/Task_User/task_led.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Task_User/task_led.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Task_User\task_led.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Task_User\task_led.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Task_User\task_led.c
 
 CMakeFiles/DM_T_Code.elf.dir/Task_User/task_led.c.i: cmake_force
@@ -1123,7 +1137,7 @@ CMakeFiles/DM_T_Code.elf.dir/Task_User/task_led.c.s: cmake_force
 CMakeFiles/DM_T_Code.elf.dir/Task_User/task_los.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Task_User/task_los.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Task_User/task_los.c
 CMakeFiles/DM_T_Code.elf.dir/Task_User/task_los.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_76) "Building C object CMakeFiles/DM_T_Code.elf.dir/Task_User/task_los.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_77) "Building C object CMakeFiles/DM_T_Code.elf.dir/Task_User/task_los.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Task_User/task_los.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Task_User\task_los.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Task_User\task_los.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Task_User\task_los.c
 
 CMakeFiles/DM_T_Code.elf.dir/Task_User/task_los.c.i: cmake_force
@@ -1137,7 +1151,7 @@ CMakeFiles/DM_T_Code.elf.dir/Task_User/task_los.c.s: cmake_force
 CMakeFiles/DM_T_Code.elf.dir/Task_User/task_motor.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Task_User/task_motor.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Task_User/task_motor.c
 CMakeFiles/DM_T_Code.elf.dir/Task_User/task_motor.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_77) "Building C object CMakeFiles/DM_T_Code.elf.dir/Task_User/task_motor.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_78) "Building C object CMakeFiles/DM_T_Code.elf.dir/Task_User/task_motor.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Task_User/task_motor.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Task_User\task_motor.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Task_User\task_motor.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Task_User\task_motor.c
 
 CMakeFiles/DM_T_Code.elf.dir/Task_User/task_motor.c.i: cmake_force
@@ -1151,7 +1165,7 @@ CMakeFiles/DM_T_Code.elf.dir/Task_User/task_motor.c.s: cmake_force
 CMakeFiles/DM_T_Code.elf.dir/Task_User/task_remote.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/Task_User/task_remote.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Task_User/task_remote.c
 CMakeFiles/DM_T_Code.elf.dir/Task_User/task_remote.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_78) "Building C object CMakeFiles/DM_T_Code.elf.dir/Task_User/task_remote.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_79) "Building C object CMakeFiles/DM_T_Code.elf.dir/Task_User/task_remote.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/Task_User/task_remote.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\Task_User\task_remote.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\Task_User\task_remote.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\Task_User\task_remote.c
 
 CMakeFiles/DM_T_Code.elf.dir/Task_User/task_remote.c.i: cmake_force
@@ -1165,7 +1179,7 @@ CMakeFiles/DM_T_Code.elf.dir/Task_User/task_remote.c.s: cmake_force
 CMakeFiles/DM_T_Code.elf.dir/USB_DEVICE/App/usb_device.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/USB_DEVICE/App/usb_device.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/USB_DEVICE/App/usb_device.c
 CMakeFiles/DM_T_Code.elf.dir/USB_DEVICE/App/usb_device.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_79) "Building C object CMakeFiles/DM_T_Code.elf.dir/USB_DEVICE/App/usb_device.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_80) "Building C object CMakeFiles/DM_T_Code.elf.dir/USB_DEVICE/App/usb_device.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/USB_DEVICE/App/usb_device.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\USB_DEVICE\App\usb_device.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\USB_DEVICE\App\usb_device.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\USB_DEVICE\App\usb_device.c
 
 CMakeFiles/DM_T_Code.elf.dir/USB_DEVICE/App/usb_device.c.i: cmake_force
@@ -1179,7 +1193,7 @@ CMakeFiles/DM_T_Code.elf.dir/USB_DEVICE/App/usb_device.c.s: cmake_force
 CMakeFiles/DM_T_Code.elf.dir/USB_DEVICE/App/usbd_cdc_if.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/USB_DEVICE/App/usbd_cdc_if.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/USB_DEVICE/App/usbd_cdc_if.c
 CMakeFiles/DM_T_Code.elf.dir/USB_DEVICE/App/usbd_cdc_if.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_80) "Building C object CMakeFiles/DM_T_Code.elf.dir/USB_DEVICE/App/usbd_cdc_if.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_81) "Building C object CMakeFiles/DM_T_Code.elf.dir/USB_DEVICE/App/usbd_cdc_if.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/USB_DEVICE/App/usbd_cdc_if.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\USB_DEVICE\App\usbd_cdc_if.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\USB_DEVICE\App\usbd_cdc_if.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\USB_DEVICE\App\usbd_cdc_if.c
 
 CMakeFiles/DM_T_Code.elf.dir/USB_DEVICE/App/usbd_cdc_if.c.i: cmake_force
@@ -1193,7 +1207,7 @@ CMakeFiles/DM_T_Code.elf.dir/USB_DEVICE/App/usbd_cdc_if.c.s: cmake_force
 CMakeFiles/DM_T_Code.elf.dir/USB_DEVICE/App/usbd_desc.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/USB_DEVICE/App/usbd_desc.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/USB_DEVICE/App/usbd_desc.c
 CMakeFiles/DM_T_Code.elf.dir/USB_DEVICE/App/usbd_desc.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_81) "Building C object CMakeFiles/DM_T_Code.elf.dir/USB_DEVICE/App/usbd_desc.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_82) "Building C object CMakeFiles/DM_T_Code.elf.dir/USB_DEVICE/App/usbd_desc.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/USB_DEVICE/App/usbd_desc.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\USB_DEVICE\App\usbd_desc.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\USB_DEVICE\App\usbd_desc.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\USB_DEVICE\App\usbd_desc.c
 
 CMakeFiles/DM_T_Code.elf.dir/USB_DEVICE/App/usbd_desc.c.i: cmake_force
@@ -1207,7 +1221,7 @@ CMakeFiles/DM_T_Code.elf.dir/USB_DEVICE/App/usbd_desc.c.s: cmake_force
 CMakeFiles/DM_T_Code.elf.dir/USB_DEVICE/Target/usbd_conf.c.obj: CMakeFiles/DM_T_Code.elf.dir/flags.make
 CMakeFiles/DM_T_Code.elf.dir/USB_DEVICE/Target/usbd_conf.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/USB_DEVICE/Target/usbd_conf.c
 CMakeFiles/DM_T_Code.elf.dir/USB_DEVICE/Target/usbd_conf.c.obj: CMakeFiles/DM_T_Code.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_82) "Building C object CMakeFiles/DM_T_Code.elf.dir/USB_DEVICE/Target/usbd_conf.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_83) "Building C object CMakeFiles/DM_T_Code.elf.dir/USB_DEVICE/Target/usbd_conf.c.obj"
 	"D:\Arm_GUN_Toolchain\14.2 rel1\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DM_T_Code.elf.dir/USB_DEVICE/Target/usbd_conf.c.obj -MF CMakeFiles\DM_T_Code.elf.dir\USB_DEVICE\Target\usbd_conf.c.obj.d -o CMakeFiles\DM_T_Code.elf.dir\USB_DEVICE\Target\usbd_conf.c.obj -c D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\USB_DEVICE\Target\usbd_conf.c
 
 CMakeFiles/DM_T_Code.elf.dir/USB_DEVICE/Target/usbd_conf.c.i: cmake_force
@@ -1221,6 +1235,7 @@ CMakeFiles/DM_T_Code.elf.dir/USB_DEVICE/Target/usbd_conf.c.s: cmake_force
 # Object files for target DM_T_Code.elf
 DM_T_Code_elf_OBJECTS = \
 "CMakeFiles/DM_T_Code.elf.dir/App_User/app_tsda_servo.c.obj" \
+"CMakeFiles/DM_T_Code.elf.dir/App_User/tsda_slide_motion.c.obj" \
 "CMakeFiles/DM_T_Code.elf.dir/Bsp_User/bsp_fdcan.c.obj" \
 "CMakeFiles/DM_T_Code.elf.dir/Bsp_User/bsp_pwm.c.obj" \
 "CMakeFiles/DM_T_Code.elf.dir/Bsp_User/bsp_spi.c.obj" \
@@ -1307,6 +1322,7 @@ DM_T_Code_elf_OBJECTS = \
 DM_T_Code_elf_EXTERNAL_OBJECTS =
 
 DM_T_Code.elf: CMakeFiles/DM_T_Code.elf.dir/App_User/app_tsda_servo.c.obj
+DM_T_Code.elf: CMakeFiles/DM_T_Code.elf.dir/App_User/tsda_slide_motion.c.obj
 DM_T_Code.elf: CMakeFiles/DM_T_Code.elf.dir/Bsp_User/bsp_fdcan.c.obj
 DM_T_Code.elf: CMakeFiles/DM_T_Code.elf.dir/Bsp_User/bsp_pwm.c.obj
 DM_T_Code.elf: CMakeFiles/DM_T_Code.elf.dir/Bsp_User/bsp_spi.c.obj
@@ -1391,7 +1407,7 @@ DM_T_Code.elf: CMakeFiles/DM_T_Code.elf.dir/USB_DEVICE/Target/usbd_conf.c.obj
 DM_T_Code.elf: CMakeFiles/DM_T_Code.elf.dir/build.make
 DM_T_Code.elf: CMakeFiles/DM_T_Code.elf.dir/objects1.rsp
 DM_T_Code.elf: CMakeFiles/DM_T_Code.elf.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_83) "Linking C executable DM_T_Code.elf"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_84) "Linking C executable DM_T_Code.elf"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\DM_T_Code.elf.dir\link.txt --verbose=$(VERBOSE)
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold "Building D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/cmake-build-debug/DM_T_Code.hex"
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold "Building D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/cmake-build-debug/DM_T_Code.bin"

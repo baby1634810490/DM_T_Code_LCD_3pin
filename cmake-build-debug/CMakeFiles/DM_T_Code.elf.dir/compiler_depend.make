@@ -24,7 +24,20 @@ CMakeFiles/DM_T_Code.elf.dir/App_User/app_tsda_servo.c.obj: D:/1_ZhiNingKang/TSD
   D:/Arm_GUN_Toolchain/14.2\ rel1/lib/gcc/arm-none-eabi/14.2.1/include/stddef.h \
   D:/Arm_GUN_Toolchain/14.2\ rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdint.h \
   D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/App_User/app_tsda_servo.h \
+  D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/App_User/tsda_slide_motion.h \
   D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Driver_User/driver_tsda_servo.h
+
+CMakeFiles/DM_T_Code.elf.dir/App_User/tsda_slide_motion.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/App_User/tsda_slide_motion.c \
+  D:/Arm_GUN_Toolchain/14.2\ rel1/arm-none-eabi/include/_newlib_version.h \
+  D:/Arm_GUN_Toolchain/14.2\ rel1/arm-none-eabi/include/machine/_default_types.h \
+  D:/Arm_GUN_Toolchain/14.2\ rel1/arm-none-eabi/include/stdint.h \
+  D:/Arm_GUN_Toolchain/14.2\ rel1/arm-none-eabi/include/sys/_intsup.h \
+  D:/Arm_GUN_Toolchain/14.2\ rel1/arm-none-eabi/include/sys/_stdint.h \
+  D:/Arm_GUN_Toolchain/14.2\ rel1/arm-none-eabi/include/sys/features.h \
+  D:/Arm_GUN_Toolchain/14.2\ rel1/lib/gcc/arm-none-eabi/14.2.1/include/stddef.h \
+  D:/Arm_GUN_Toolchain/14.2\ rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdint.h \
+  D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/App_User/tsda_slide_motion.h \
+  D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/MathFunction_User/position_velocity_planner.h
 
 CMakeFiles/DM_T_Code.elf.dir/Bsp_User/bsp_fdcan.c.obj: D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Bsp_User/bsp_fdcan.c \
   D:/Arm_GUN_Toolchain/14.2\ rel1/arm-none-eabi/include/_ansi.h \
@@ -4625,10 +4638,6 @@ D:/Arm_GUN_Toolchain/14.2\ rel1/arm-none-eabi/include/machine/ieeefp.h:
 
 D:/Arm_GUN_Toolchain/14.2\ rel1/arm-none-eabi/include/_ansi.h:
 
-D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/MathFunction_User/convert.c:
-
-D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pcd_ex.h:
-
 D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/App_User/app_tsda_servo.c:
 
 D:/Arm_GUN_Toolchain/14.2\ rel1/arm-none-eabi/include/string.h:
@@ -4646,6 +4655,8 @@ D:/Arm_GUN_Toolchain/14.2\ rel1/arm-none-eabi/include/machine/_types.h:
 D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Middlewares/Third_Party/FreeRTOS/Source/include/croutine.h:
 
 D:/Arm_GUN_Toolchain/14.2\ rel1/arm-none-eabi/include/newlib.h:
+
+D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/MathFunction_User/position_velocity_planner.h:
 
 D:/Arm_GUN_Toolchain/14.2\ rel1/arm-none-eabi/include/stdint.h:
 
@@ -4668,8 +4679,6 @@ D:/Arm_GUN_Toolchain/14.2\ rel1/arm-none-eabi/include/sys/_types.h:
 D:/Arm_GUN_Toolchain/14.2\ rel1/arm-none-eabi/include/sys/cdefs.h:
 
 D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Bsp_User/bsp_fdcan.h:
-
-D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pwr.h:
 
 D:/Arm_GUN_Toolchain/14.2\ rel1/arm-none-eabi/include/stdlib.h:
 
@@ -4717,9 +4726,25 @@ D:/Arm_GUN_Toolchain/14.2\ rel1/lib/gcc/arm-none-eabi/14.2.1/include/stdint.h:
 
 D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/App_User/app_tsda_servo.h:
 
+D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Driver_User/driver_los.c:
+
+D:/Arm_GUN_Toolchain/14.2\ rel1/arm-none-eabi/include/machine/_endian.h:
+
+D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/App_User/tsda_slide_motion.h:
+
 D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Driver_User/driver_tsda_servo.h:
 
 D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Drivers/CMSIS/Include/cmsis_compiler.h:
+
+D:/Arm_GUN_Toolchain/14.2\ rel1/arm-none-eabi/include/stdio.h:
+
+D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash_ex.h:
+
+D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash.h:
+
+D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Driver_User/driver_los.h:
+
+D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/App_User/tsda_slide_motion.c:
 
 D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Bsp_User/bsp_fdcan.c:
 
@@ -4755,8 +4780,6 @@ D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Core/Inc/me
 
 D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Drivers/CMSIS/Include/cmsis_gcc.h:
 
-D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pwr_ex.h:
-
 D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Drivers/CMSIS/Include/cmsis_version.h:
 
 D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Bsp_User/bsp_spi.c:
@@ -4775,17 +4798,19 @@ D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Drivers/STM
 
 D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_exti.h:
 
-D:/Arm_GUN_Toolchain/14.2\ rel1/arm-none-eabi/include/stdio.h:
-
-D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash_ex.h:
-
-D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash.h:
-
 D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_hsem.h:
 
 D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_mdma.h:
 
 D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pcd.h:
+
+D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/MathFunction_User/convert.c:
+
+D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pcd_ex.h:
+
+D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pwr.h:
+
+D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pwr_ex.h:
 
 D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_spi.h:
 
@@ -4909,10 +4934,6 @@ D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Core/Src/sy
 
 D:/Arm_GUN_Toolchain/14.2\ rel1/arm-none-eabi/include/errno.h:
 
-D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Driver_User/driver_los.c:
-
-D:/Arm_GUN_Toolchain/14.2\ rel1/arm-none-eabi/include/machine/_endian.h:
-
 D:/Arm_GUN_Toolchain/14.2\ rel1/arm-none-eabi/include/machine/_time.h:
 
 D:/Arm_GUN_Toolchain/14.2\ rel1/arm-none-eabi/include/machine/endian.h:
@@ -4954,8 +4975,6 @@ D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Core/Src/ti
 D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Core/Src/usart.c:
 
 D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Driver_User/driver_led.c:
-
-D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Driver_User/driver_los.h:
 
 D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Driver_User/driver_motor.c:
 
@@ -5026,8 +5045,6 @@ D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/USB_DEVICE/
 D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/MathFunction_User/pid.c:
 
 D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/MathFunction_User/position_velocity_planner.c:
-
-D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/MathFunction_User/position_velocity_planner.h:
 
 D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc/usbd_cdc.h:
 

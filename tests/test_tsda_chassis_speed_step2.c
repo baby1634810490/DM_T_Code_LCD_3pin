@@ -86,15 +86,15 @@ int main(void)
 	             TSDA_REG_UNUSED, 0);
 	TSDA_AppUpdate(2047U);
 
-	/* 读取寻限起点后，第一拍必须下发向上的 +50RPM。 */
+	/* 读取寻限起点后，第一拍必须下发实机确认的向上 -250RPM。 */
 	TSDA_AppUpdate(2057U);
 	assert(mock_can.data[2] == TSDA_REG_FEEDBACK_POS_HIGH);
 	FeedPosition(100000);
 	TSDA_AppUpdate(2058U);
 	assert(tsda_app_state == TSDA_APP_HOME_FIND_UPPER);
 	assert(mock_can.data[2] == TSDA_REG_TARGET_SPEED);
-	assert(mock_can.data[3] == 0U);
-	assert(mock_can.data[4] == 50U);
+	assert(mock_can.data[3] == 0xFFU);
+	assert(mock_can.data[4] == 0x06U);
 
 	/* 第二、三拍依次读取位置和0x58。 */
 	TSDA_AppUpdate(2059U);
@@ -113,18 +113,22 @@ int main(void)
 
 	FeedResponse(0x1BU, TSDA_REG_TARGET_SPEED, 0, TSDA_REG_UNUSED, 0);
 	TSDA_AppUpdate(2062U);
-	TSDA_AppUpdate(2072U);
+	assert(tsda_app_state == TSDA_APP_WAIT_HOME_STABLE);
+
+	/* 零速ACK后必须等待50ms，再满足10ms命令间隔后读取停止位置。 */
+	TSDA_AppUpdate(2112U);
+	assert(tsda_app_state == TSDA_APP_SEND_HOME_ZERO_POSITION);
+	TSDA_AppUpdate(2122U);
 	assert(mock_can.data[2] == TSDA_REG_FEEDBACK_POS_HIGH);
 	FeedPosition(100120);
-	TSDA_AppUpdate(2073U);
+	TSDA_AppUpdate(2123U);
 
-	assert(tsda_app_state == TSDA_APP_HOME_UPPER_ZERO_HOLD);
-	assert(tsda_status.homing_done == 1U);
+	assert(tsda_app_state == TSDA_APP_HOME_MOVE_RETURN);
+	assert(tsda_status.homing_done == 0U);
 	assert(tsda_status.position_origin_raw == 100120);
-	assert(tsda_status.commanded_speed_rpm == 0);
+	assert(tsda_status.commanded_speed_rpm == TSDA_APP_HOME_RETURN_SPEED_RPM);
 	assert(tsda_status.ready == 0U);
 	assert(tsda_status.error_code == TSDA_APP_ERROR_NONE);
 
 	return 0;
 }
-

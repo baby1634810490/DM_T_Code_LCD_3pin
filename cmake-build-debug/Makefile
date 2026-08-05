@@ -152,6 +152,30 @@ App_User/app_tsda_servo.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\DM_T_Code.elf.dir\build.make CMakeFiles/DM_T_Code.elf.dir/App_User/app_tsda_servo.c.s
 .PHONY : App_User/app_tsda_servo.c.s
 
+App_User/tsda_slide_motion.obj: App_User/tsda_slide_motion.c.obj
+.PHONY : App_User/tsda_slide_motion.obj
+
+# target to build an object file
+App_User/tsda_slide_motion.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DM_T_Code.elf.dir\build.make CMakeFiles/DM_T_Code.elf.dir/App_User/tsda_slide_motion.c.obj
+.PHONY : App_User/tsda_slide_motion.c.obj
+
+App_User/tsda_slide_motion.i: App_User/tsda_slide_motion.c.i
+.PHONY : App_User/tsda_slide_motion.i
+
+# target to preprocess a source file
+App_User/tsda_slide_motion.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DM_T_Code.elf.dir\build.make CMakeFiles/DM_T_Code.elf.dir/App_User/tsda_slide_motion.c.i
+.PHONY : App_User/tsda_slide_motion.c.i
+
+App_User/tsda_slide_motion.s: App_User/tsda_slide_motion.c.s
+.PHONY : App_User/tsda_slide_motion.s
+
+# target to generate assembly for a file
+App_User/tsda_slide_motion.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DM_T_Code.elf.dir\build.make CMakeFiles/DM_T_Code.elf.dir/App_User/tsda_slide_motion.c.s
+.PHONY : App_User/tsda_slide_motion.c.s
+
 Bsp_User/bsp_fdcan.obj: Bsp_User/bsp_fdcan.c.obj
 .PHONY : Bsp_User/bsp_fdcan.obj
 
@@ -2092,6 +2116,9 @@ help:
 	@echo ... App_User/app_tsda_servo.obj
 	@echo ... App_User/app_tsda_servo.i
 	@echo ... App_User/app_tsda_servo.s
+	@echo ... App_User/tsda_slide_motion.obj
+	@echo ... App_User/tsda_slide_motion.i
+	@echo ... App_User/tsda_slide_motion.s
 	@echo ... Bsp_User/bsp_fdcan.obj
 	@echo ... Bsp_User/bsp_fdcan.i
 	@echo ... Bsp_User/bsp_fdcan.s

@@ -11,17 +11,19 @@
   *   5. 使能并等待驱动器稳定；
   *   6. 读取 0x58 和寻限起点 E8/E9；
   *   7. 未触发上限时进入 3ms 三相节拍：写负转速、读E8/E9、读0x58；
-  *   8. 上限触发后写0RPM，读取停止位置建立0点；
-  *   9. 建立 [0,-300]mm 坐标系，ready=1，自动下移100mm到 -100mm。
+  *   8. 上限触发后写0RPM，等待50ms并读取停止位置建立0点；
+  *   9. 建立 [0,-300]mm 坐标系，固定速度回到-100mm并停稳；
+  *  10. ready=1后开放实时目标、最大速度和加速度，DONE状态执行PVP。
   *
   * 坐标约定（已由实机确认）：
   *   - 负转速 = 向上（朝上限），正转速 = 向下（远离上限）
   *   - 原始位置随向下移动而增加
-  *   - position_mm = 0 在上限零点，负值表示零点下方距离
+  *   - height_mm = 0 在上限零点，负值表示零点下方距离
   ******************************************************************************
   */
 
 #include "app_tsda_servo.h"
+#include "tsda_slide_motion.h"
 
 #include <string.h>
 
@@ -37,8 +39,6 @@
                                           TSDA_HOME_MAX_TRAVEL_MM)
 
 /** @brief 限位触发后保持当前位置并等待机械稳定的时间，单位 ms。 */
-#define TSDA_APP_HOME_HOLD_SETTLE_MS     (50U)
-
 /* 位置闭环内部参数 */
 #define TSDA_APP_COUNTS_PER_MM           (TSDA_POSITION_COUNT_PER_MM)
 #define TSDA_APP_POSITION_TOLERANCE_RAW  ((int32_t)TSDA_APP_POSITION_TOLERANCE_MM * \
@@ -84,11 +84,18 @@ typedef struct
 	uint32_t homing_start_tick_ms;     /*!< 90s寻限保护计时起点。 */
 	TSDA_AppError pending_error;       /*!< 先零速停止、后锁存的寻限错误。 */
 	uint8_t retry;                     /*!< 当前初始化命令已重发次数。 */
+	TSDA_SlideMotion motion;           /*!< ready后DONE状态使用的浮点速度规划状态。 */
 } TSDA_AppContext;
 
-volatile TSDA_Command tsda_command = {1U, 0};
+volatile TSDA_Command tsda_command = {1U};
 volatile TSDA_Status tsda_status;
 volatile TSDA_AppState tsda_app_state = TSDA_APP_POWER_WAIT;
+volatile TSDA_SlideControl tsda_slide_control = {
+	TSDA_APP_INITIAL_TARGET_MM,
+	TSDA_APP_DEFAULT_MAX_SPEED_MM_S,
+	TSDA_APP_DEFAULT_ACCEL_MM_S2
+};
+volatile TSDA_SlideFeedback tsda_slide_feedback;
 
 static TSDA_AppContext tsda_app;
 
@@ -105,10 +112,13 @@ static void TSDA_AppProcessRxQueue(uint32_t now_ms);
 static void TSDA_AppProcessRxFrame(const TSDA_RxFrame* frame, uint32_t now_ms);
 static void TSDA_AppRunUpperHoming(uint32_t now_ms);
 static void TSDA_AppCheckHomingProtection(uint32_t now_ms);
+static void TSDA_AppRunHomeReturnFixedSpeed(uint32_t now_ms);
 static void TSDA_AppRunDone(uint32_t now_ms);
-static int32_t TSDA_AppRawToPositionMm(int32_t current_raw);
-static int32_t TSDA_AppPositionMmToRaw(int32_t position_mm);
+static float TSDA_AppRawToHeightMm(int32_t current_raw);
+static int32_t TSDA_AppHeightMmToRaw(float height_mm);
 static void TSDA_AppClampTargetPosition(void);
+static uint8_t TSDA_AppHomeReturnStopped(void);
+static void TSDA_AppUpdateExternalFeedback(void);
 static uint8_t TSDA_AppSendSucceeded(TSDA_Result result, uint32_t now_ms);
 static void TSDA_AppEnterError(TSDA_AppError error, uint32_t now_ms);
 
@@ -120,26 +130,32 @@ static void TSDA_AppEnterError(TSDA_AppError error, uint32_t now_ms);
   *         position_mm = -(current_raw - origin_raw) / COUNTS_PER_MM。
   *         上限零点 → 0mm，向下 100mm → -100mm，向下 300mm → -300mm。
   */
-static int32_t TSDA_AppRawToPositionMm(int32_t current_raw)
+static float TSDA_AppRawToHeightMm(int32_t current_raw)
 {
 	int32_t delta = current_raw - tsda_status.position_origin_raw;
-	return -(delta / (int32_t)TSDA_APP_COUNTS_PER_MM);
+	return -((float)delta / (float)TSDA_APP_COUNTS_PER_MM);
 }
 
-/** @brief 将用户 mm 坐标转换为原始编码器位置。 */
-static int32_t TSDA_AppPositionMmToRaw(int32_t position_mm)
+/** @brief 将用户浮点高度转换为原始编码器位置，供固定速度自动回位判断。 */
+static int32_t TSDA_AppHeightMmToRaw(float height_mm)
 {
-	int32_t delta = -(position_mm * (int32_t)TSDA_APP_COUNTS_PER_MM);
-	return tsda_status.position_origin_raw + delta;
+	float delta = -height_mm * (float)TSDA_APP_COUNTS_PER_MM;
+	int32_t delta_raw = (delta >= 0.0f) ? (int32_t)(delta + 0.5f) :
+	                                           (int32_t)(delta - 0.5f);
+	return tsda_status.position_origin_raw + delta_raw;
 }
 
 /** @brief 将用户目标位置钳位到 [0, -300]mm 安全范围内。 */
 static void TSDA_AppClampTargetPosition(void)
 {
-	if (tsda_command.target_position_mm > 0)
-		tsda_command.target_position_mm = 0;
-	if (tsda_command.target_position_mm < -(int32_t)TSDA_APP_SOFT_LOWER_LIMIT_MM)
-		tsda_command.target_position_mm = -(int32_t)TSDA_APP_SOFT_LOWER_LIMIT_MM;
+	float target = tsda_slide_control.target_height_mm;
+
+	if (target > 0.0f)
+		target = 0.0f;
+	if (target < -(float)TSDA_APP_SOFT_LOWER_LIMIT_MM)
+		target = -(float)TSDA_APP_SOFT_LOWER_LIMIT_MM;
+
+	tsda_slide_control.target_height_mm = target;
 }
 
 /* ---- 初始化 ---- */
@@ -161,11 +177,17 @@ void TSDA_AppInit(TSDA_SendFunc send, void* send_user, uint32_t now_ms)
 	          send,
 	          send_user);
 
+	TSDA_SlideMotionReset(&tsda_app.motion, 1U);
+
 	/* 上电后自动执行零速使能和寻限，完成后自动下移至 -100mm。 */
 	tsda_command.servo_enable = 1U;
-	tsda_command.target_position_mm = TSDA_APP_INITIAL_TARGET_MM;
+	tsda_slide_control.target_height_mm = (float)TSDA_APP_INITIAL_TARGET_MM;
+	tsda_slide_control.max_speed_mm_s = TSDA_APP_DEFAULT_MAX_SPEED_MM_S;
+	tsda_slide_control.acceleration_mm_s2 = TSDA_APP_DEFAULT_ACCEL_MM_S2;
+	tsda_slide_feedback.current_height_mm = 0.0f;
+	tsda_slide_feedback.current_speed_mm_s = 0.0f;
 	tsda_status.ready = 0U;
-	tsda_status.target_position_mm = TSDA_APP_INITIAL_TARGET_MM;
+	tsda_status.target_height_mm = (float)TSDA_APP_INITIAL_TARGET_MM;
 	TSDA_AppSetState(TSDA_APP_POWER_WAIT, now_ms);
 }
 
@@ -213,6 +235,13 @@ void TSDA_AppUpdate(uint32_t now_ms)
 	case TSDA_APP_WAIT_HOME_ZERO_POSITION:
 	case TSDA_APP_WAIT_ZERO_BEFORE_DISABLE_ACK:
 		TSDA_AppHandleWaitTimeout(now_ms);
+		break;
+
+	case TSDA_APP_WAIT_HOME_STABLE:
+		/* 上限触发后的0RPM ACK只表示命令被接收，机械速度仍可能尚未归零。
+		 * 等待50ms后再读取E8/E9，避免把减速过程中的位置记为软件零点。 */
+		if ((now_ms - tsda_app.state_tick_ms) >= TSDA_APP_HOME_STABLE_MS)
+			TSDA_AppSetState(TSDA_APP_SEND_HOME_ZERO_POSITION, now_ms);
 		break;
 
 	case TSDA_APP_SEND_CLEAR_FAULT:
@@ -290,11 +319,12 @@ void TSDA_AppUpdate(uint32_t now_ms)
 			tsda_status.upper_limit_active = 0U;
 			tsda_status.lower_limit_active = 0U;
 			tsda_status.position_origin_raw = 0;
-			tsda_status.current_position_mm = 0;
+			tsda_status.current_height_mm = 0.0f;
 			tsda_status.homing_elapsed_ms = 0U;
 			tsda_status.homing_travel_raw = 0U;
 			tsda_status.run_send_phase = 0U;
 			tsda_app.pending_error = TSDA_APP_ERROR_NONE;
+			TSDA_SlideMotionReset(&tsda_app.motion, 1U);
 			TSDA_AppSetState(TSDA_APP_SEND_HOME_LIMIT_CHECK, now_ms);
 		}
 		break;
@@ -381,21 +411,23 @@ void TSDA_AppUpdate(uint32_t now_ms)
 		/* 回位保护：20s 内未到 -100mm 视为故障。 */
 		if ((now_ms - tsda_app.state_tick_ms) >= TSDA_HOME_RETURN_TIMEOUT_MS)
 		{
-			tsda_app.pending_error = TSDA_APP_ERROR_HOME_TIMEOUT;
-			TSDA_AppSetState(TSDA_APP_ERROR, now_ms);
+			/* 超时后尽力发送一次0RPM，但按需求不等待ACK，立即锁存原超时错误。 */
+			result = TSDA_SetTargetSpeedRpm(&tsda_app.servo, 0);
+			if (result == TSDA_OK)
+				tsda_status.tx_count++;
+			tsda_status.commanded_speed_rpm = 0;
+			TSDA_AppEnterError(TSDA_APP_ERROR_HOME_TIMEOUT, now_ms);
 			break;
 		}
-		/* bang-bang 恒速向 -100mm 移动（与 DONE 相同三拍逻辑）。 */
-		TSDA_AppRunDone(now_ms);
-		/* 到位锁轴判定：位置在目标 ±容差 内 → 置 ready 进入 DONE。 */
-		if ((tsda_status.current_position_mm - tsda_command.target_position_mm) >=
-		        -(int32_t)TSDA_APP_POSITION_TOLERANCE_MM &&
-		    (tsda_status.current_position_mm - tsda_command.target_position_mm) <=
-		         (int32_t)TSDA_APP_POSITION_TOLERANCE_MM)
+		TSDA_AppRunHomeReturnFixedSpeed(now_ms);
+		/* 位置进入±2mm后固定回位函数持续发送0RPM；只有E4也降到2RPM以内，
+		 * 才开放协议控制，防止PVP继承固定回位阶段的残余运动。 */
+		if (TSDA_AppHomeReturnStopped() != 0U)
 		{
 			tsda_status.homing_done = 1U;
 			tsda_status.ready = 1U;
 			tsda_status.run_send_phase = 0U;
+			TSDA_SlideMotionReset(&tsda_app.motion, 1U);
 			TSDA_AppSetState(TSDA_APP_DONE, now_ms);
 		}
 		break;
@@ -431,6 +463,7 @@ void TSDA_AppUpdate(uint32_t now_ms)
 		{
 			tsda_status.servo_enabled = 0U;
 			tsda_status.output_speed_rpm = 0;
+			TSDA_SlideMotionReset(&tsda_app.motion, 1U);
 			TSDA_AppSetState(TSDA_APP_DISABLED, now_ms);
 		}
 		break;
@@ -444,6 +477,8 @@ void TSDA_AppUpdate(uint32_t now_ms)
 	default:
 		break;
 	}
+
+	TSDA_AppUpdateExternalFeedback();
 }
 
 /* ---- CAN 接收 ---- */
@@ -498,14 +533,14 @@ uint8_t TSDA_AppIsServoEnabled(void)
   * @brief 写入目标高度(mm)并自动钳位到 [0,-300]mm 范围内。
   * @note 目标被钳位后，done模式不会试图越过软件上下限。
   */
-void TSDA_AppSetTargetHeightMm(int32_t target_mm)
+void TSDA_AppSetTargetHeightMm(float target_mm)
 {
-	if (target_mm > 0)
-		target_mm = 0;
-	if (target_mm < -(int32_t)TSDA_APP_SOFT_LOWER_LIMIT_MM)
-		target_mm = -(int32_t)TSDA_APP_SOFT_LOWER_LIMIT_MM;
+	if (target_mm > 0.0f)
+		target_mm = 0.0f;
+	if (target_mm < -(float)TSDA_APP_SOFT_LOWER_LIMIT_MM)
+		target_mm = -(float)TSDA_APP_SOFT_LOWER_LIMIT_MM;
 
-	tsda_command.target_position_mm = target_mm;
+	tsda_slide_control.target_height_mm = target_mm;
 }
 
 /* ---- 状态切换工具 ---- */
@@ -641,8 +676,8 @@ static void TSDA_AppProcessRxFrame(const TSDA_RxFrame* frame, uint32_t now_ms)
 		uint16_t low = (uint16_t)TSDA_GetResponseValue2(data);
 		tsda_status.current_position_raw =
 			(int32_t)(((uint32_t)high << 16U) | (uint32_t)low);
-		tsda_status.current_position_mm =
-			(int32_t)TSDA_AppRawToPositionMm(tsda_status.current_position_raw);
+		tsda_status.current_height_mm =
+			TSDA_AppRawToHeightMm(tsda_status.current_position_raw);
 
 		if (tsda_app_state == TSDA_APP_WAIT_HOME_START_POSITION)
 		{
@@ -674,10 +709,9 @@ static void TSDA_AppProcessRxFrame(const TSDA_RxFrame* frame, uint32_t now_ms)
 				 * ready 在回位到位锁轴后才置1。
 				 */
 				tsda_status.position_origin_raw = tsda_status.current_position_raw;
-				tsda_status.current_position_mm = 0;
+				tsda_status.current_height_mm = 0.0f;
 				tsda_status.run_send_phase = 0U;
-				tsda_command.target_position_mm = TSDA_APP_INITIAL_TARGET_MM;
-				tsda_status.target_position_mm = TSDA_APP_INITIAL_TARGET_MM;
+				tsda_status.target_height_mm = (float)TSDA_APP_INITIAL_TARGET_MM;
 				TSDA_AppSetState(TSDA_APP_HOME_MOVE_RETURN, now_ms);
 			}
 		}
@@ -729,7 +763,7 @@ static void TSDA_AppProcessRxFrame(const TSDA_RxFrame* frame, uint32_t now_ms)
 			TSDA_AppSetState(TSDA_APP_SEND_ENABLE, now_ms);
 			break;
 		case TSDA_APP_WAIT_HOME_STOP_ACK:
-			TSDA_AppSetState(TSDA_APP_SEND_HOME_ZERO_POSITION, now_ms);
+			TSDA_AppSetState(TSDA_APP_WAIT_HOME_STABLE, now_ms);
 			break;
 		case TSDA_APP_WAIT_ZERO_BEFORE_DISABLE_ACK:
 			TSDA_AppSetState(TSDA_APP_SEND_DISABLE, now_ms);
@@ -807,17 +841,18 @@ static void TSDA_AppCheckHomingProtection(uint32_t now_ms)
 	}
 }
 
-/* ---- 位置闭环控制 ---- */
+/* ---- 自动回位与正常速度规划 ---- */
 
 /**
-  * @brief done模式三相节拍（3ms周期，每相1ms）。
+  * @brief 建立零点后固定100RPM回到-100mm。
   *
-  * MotorTask 每1ms调用一次 AppUpdate，三个相位依次占用三个调度周期：
-  *   phase0：写入目标速度（恒定速度，由位置误差决定方向，到位时为0RPM锁轴）；
+  * 该阶段故意不读取外部协议速度和加速度，保持已经确定的分阶段实测边界。
+  * 三个相位依次为：
+  *   phase0：误差超过2mm时固定±100RPM，否则写0RPM；
   *   phase1：读 E8/E9，更新当前位置坐标；
   *   phase2：读 E4，更新实际转速。
   */
-static void TSDA_AppRunDone(uint32_t now_ms)
+static void TSDA_AppRunHomeReturnFixedSpeed(uint32_t now_ms)
 {
 	TSDA_Result result;
 	int32_t target_raw;
@@ -825,20 +860,19 @@ static void TSDA_AppRunDone(uint32_t now_ms)
 	int32_t abs_error;
 	int16_t move_speed;
 
-	/* 根据最新位置误差计算本拍目标速度，误差超出容差才运动 */
-	target_raw = TSDA_AppPositionMmToRaw(tsda_command.target_position_mm);
+	/* 自动回位目标独立于协议控制结构体；ready=0期间外部写入只保存、不执行。 */
+	target_raw = TSDA_AppHeightMmToRaw((float)TSDA_APP_INITIAL_TARGET_MM);
 	error = target_raw - tsda_status.current_position_raw;
 	abs_error = (error < 0) ? -error : error;
 
 	if (abs_error > TSDA_APP_POSITION_TOLERANCE_RAW)
 		move_speed = (error > 0)
-			? (int16_t)TSDA_APP_POSITION_MOVE_SPEED_RPM
-			: (int16_t)(-(int16_t)TSDA_APP_POSITION_MOVE_SPEED_RPM);
+			? (int16_t)TSDA_APP_HOME_RETURN_SPEED_RPM
+			: (int16_t)(-(int16_t)TSDA_APP_HOME_RETURN_SPEED_RPM);
 	else
 		move_speed = 0;
 
-	/* 同步用户可见的目标位置 */
-	tsda_status.target_position_mm = tsda_command.target_position_mm;
+	tsda_status.target_height_mm = (float)TSDA_APP_INITIAL_TARGET_MM;
 
 	/* 三拍：写目标速度 → 读位置 → 读实际转速 */
 	switch (tsda_status.run_send_phase)
@@ -861,6 +895,93 @@ static void TSDA_AppRunDone(uint32_t now_ms)
 		return;
 
 	tsda_status.run_send_phase = (uint8_t)((tsda_status.run_send_phase + 1U) % 3U);
+}
+
+/** @brief 判断自动回位是否同时满足±2mm位置门限和E4不超过2RPM。 */
+static uint8_t TSDA_AppHomeReturnStopped(void)
+{
+	int32_t target_raw = TSDA_AppHeightMmToRaw((float)TSDA_APP_INITIAL_TARGET_MM);
+	int64_t error = (int64_t)target_raw - (int64_t)tsda_status.current_position_raw;
+	int32_t speed = (int32_t)tsda_status.output_speed_rpm;
+
+	if (error < 0)
+		error = -error;
+	if (speed < 0)
+		speed = -speed;
+
+	return ((error <= (int64_t)TSDA_APP_POSITION_TOLERANCE_RAW) &&
+	        (speed <= TSDA_APP_STOP_SPEED_RPM)) ? 1U : 0U;
+}
+
+/**
+  * @brief ready后的PVP三相节拍。
+  *
+  * 只有phase0读取一份实时控制快照并推进一次规划，因此PVP的dt固定为3ms；
+  * phase1和phase2分别刷新下一次规划使用的位置与E4反馈。
+  */
+static void TSDA_AppRunDone(uint32_t now_ms)
+{
+	TSDA_Result result;
+
+	switch (tsda_status.run_send_phase)
+	{
+	case 0U:
+	{
+		/* 三个32位字段在写速度相位各读取一次。本周期使用同一份局部快照，
+		 * 参数变化从下一次3ms规划周期开始生效。 */
+		float target_height_mm = tsda_slide_control.target_height_mm;
+		float max_speed_mm_s = tsda_slide_control.max_speed_mm_s;
+		float acceleration_mm_s2 = tsda_slide_control.acceleration_mm_s2;
+		int16_t target_rpm;
+
+		target_rpm = TSDA_SlideMotionStep(&tsda_app.motion,
+									 target_height_mm,
+									 tsda_status.current_height_mm,
+									 max_speed_mm_s,
+									 acceleration_mm_s2,
+									 tsda_status.output_speed_rpm);
+		result = TSDA_SetTargetSpeedRpm(&tsda_app.servo, target_rpm);
+		tsda_status.commanded_speed_rpm = target_rpm;
+		tsda_status.target_height_mm = target_height_mm;
+		break;
+	}
+	case 1U:
+		result = TSDA_ReadReg2(&tsda_app.servo,
+		                           TSDA_REG_FEEDBACK_POS_HIGH,
+		                           TSDA_REG_FEEDBACK_POS_LOW);
+		break;
+	default:
+		result = TSDA_ReadReg(&tsda_app.servo, TSDA_REG_OUTPUT_SPEED);
+		break;
+	}
+
+	if (TSDA_AppSendSucceeded(result, now_ms) == 0U)
+		return;
+
+	tsda_status.run_send_phase = (uint8_t)((tsda_status.run_send_phase + 1U) % 3U);
+}
+
+/**
+  * @brief 把App内部状态映射到协议反馈结构体。
+  * @note ready前软件零点尚未开放，按约定两个字段都保持0；ready后高度保留
+  *       真实越界量，速度符号与用户坐标一致，因此需要对E4符号取反。
+  */
+static void TSDA_AppUpdateExternalFeedback(void)
+{
+	/* 规划诊断量始终同步，便于FreeMASTER观察；协议反馈仍受ready门控。 */
+	tsda_status.planned_velocity_mm_s = tsda_app.motion.planned_velocity_mm_s;
+	tsda_status.motion_hold_active = tsda_app.motion.hold_active;
+
+	if (tsda_status.ready == 0U)
+	{
+		tsda_slide_feedback.current_height_mm = 0.0f;
+		tsda_slide_feedback.current_speed_mm_s = 0.0f;
+		return;
+	}
+
+	tsda_slide_feedback.current_height_mm = tsda_status.current_height_mm;
+	tsda_slide_feedback.current_speed_mm_s =
+		-((float)tsda_status.output_speed_rpm * TSDA_SLIDE_MM_PER_REV / 60.0f);
 }
 
 /* ---- 通用工具 ---- */
@@ -903,5 +1024,6 @@ static void TSDA_AppEnterError(TSDA_AppError error, uint32_t now_ms)
 
 	tsda_status.error_code = error;
 	tsda_status.ready = 0U;
+	TSDA_SlideMotionReset(&tsda_app.motion, 1U);
 	TSDA_AppSetState(TSDA_APP_ERROR, now_ms);
 }

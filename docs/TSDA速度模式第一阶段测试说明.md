@@ -1,4 +1,6 @@
-# TSDA 速度模式第一阶段测试说明
+# TSDA 速度模式第一阶段测试说明（历史记录）
+
+> 本文记录零速使能阶段的实机结果。当前状态机已继续扩展，不再使用当时的专用零速测试状态名。
 
 ## 本阶段目标
 
@@ -17,7 +19,7 @@
 
 ## FreeMASTER 变量
 
-- `tsda_app_state`：最终应稳定在 `TSDA_APP_ZERO_SPEED_TEST`。
+- `tsda_app_state`：当时的阶段固件应稳定在零速循环测试状态。
 - `tsda_status.online`：应为1。
 - `tsda_status.servo_enabled`：应为1。
 - `tsda_status.ready`：本阶段必须保持0。
@@ -37,4 +39,4 @@
 
 ## 实测结果
 
-2026-08-04 实机验证通过：状态机进入 `TSDA_APP_ZERO_SPEED_TEST`，驱动器在线，目标速度和 E4 反馈均为 `0RPM`；Chassis 抱闸自动释放，电机锁轴，没有缓慢下滑或持续转动。
+2026-08-04 实机验证通过：驱动器在线，目标速度和E4反馈均为 `0RPM`；Chassis抱闸自动释放，电机锁轴，没有缓慢下滑或持续转动。

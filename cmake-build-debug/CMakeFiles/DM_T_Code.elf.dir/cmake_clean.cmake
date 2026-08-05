@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/DM_T_Code.elf.dir/App_User/app_tsda_servo.c.obj"
   "CMakeFiles/DM_T_Code.elf.dir/App_User/app_tsda_servo.c.obj.d"
+  "CMakeFiles/DM_T_Code.elf.dir/App_User/tsda_slide_motion.c.obj"
+  "CMakeFiles/DM_T_Code.elf.dir/App_User/tsda_slide_motion.c.obj.d"
   "CMakeFiles/DM_T_Code.elf.dir/Bsp_User/bsp_fdcan.c.obj"
   "CMakeFiles/DM_T_Code.elf.dir/Bsp_User/bsp_fdcan.c.obj.d"
   "CMakeFiles/DM_T_Code.elf.dir/Bsp_User/bsp_pwm.c.obj"

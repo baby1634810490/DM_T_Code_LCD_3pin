@@ -48,6 +48,7 @@ set(CMAKE_ASM_TARGET_INCLUDE_PATH
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/App_User/app_tsda_servo.c" "CMakeFiles/DM_T_Code.elf.dir/App_User/app_tsda_servo.c.obj" "gcc" "CMakeFiles/DM_T_Code.elf.dir/App_User/app_tsda_servo.c.obj.d"
+  "D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/App_User/tsda_slide_motion.c" "CMakeFiles/DM_T_Code.elf.dir/App_User/tsda_slide_motion.c.obj" "gcc" "CMakeFiles/DM_T_Code.elf.dir/App_User/tsda_slide_motion.c.obj.d"
   "D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Bsp_User/bsp_fdcan.c" "CMakeFiles/DM_T_Code.elf.dir/Bsp_User/bsp_fdcan.c.obj" "gcc" "CMakeFiles/DM_T_Code.elf.dir/Bsp_User/bsp_fdcan.c.obj.d"
   "D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Bsp_User/bsp_pwm.c" "CMakeFiles/DM_T_Code.elf.dir/Bsp_User/bsp_pwm.c.obj" "gcc" "CMakeFiles/DM_T_Code.elf.dir/Bsp_User/bsp_pwm.c.obj.d"
   "D:/1_ZhiNingKang/TSDAC12D/code/Code_history_ultra/DM_T_Code_LCD_3pin/Bsp_User/bsp_spi.c" "CMakeFiles/DM_T_Code.elf.dir/Bsp_User/bsp_spi.c.obj" "gcc" "CMakeFiles/DM_T_Code.elf.dir/Bsp_User/bsp_spi.c.obj.d"
