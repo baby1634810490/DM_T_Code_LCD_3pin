@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ClaudeCodeTabState">
+    <option name="tabSessions">
+      <map>
+        <entry key="0">
+          <value>
+            <TabSessionState>
+              <option name="provider" value="claude" />
+              <option name="sessionId" value="6b4b3988-825c-4249-8eac-811624871760" />
+              <option name="cwd" value="D:\1_ZhiNingKang\TSDAC12D\code\Code_history_ultra\DM_T_Code_LCD_3pin" />
+              <option name="model" value="claude-haiku-4-5" />
+              <option name="permissionMode" value="default" />
+            </TabSessionState>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

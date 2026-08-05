@@ -1,20 +1,23 @@
 /**
   ******************************************************************************
   * @file    app_tsda_servo.c
-  * @brief   TSDA Chassis 速度模式分阶段重写 - 第二阶段实现。
+  * @brief   TSDA Chassis 速度模式重写 - 位置闭环控制实现。
   *
-  * 状态机在第一阶段零速使能基础上增加独立可测的上限寻限流程：
+  * 状态机流程：
   *   1. 读取 E3，确认 CAN1 上驱动器在线；
   *   2. 清故障；
   *   3. 写 0x02=0x00C4 和 0x0A=0x0101；
   *   4. 在使能前写 0x10=0RPM；
   *   5. 使能并等待驱动器稳定；
   *   6. 读取 0x58 和寻限起点 E8/E9；
-  *   7. 未触发上限时进入 3ms 三相节拍：写+50RPM、读E8/E9、读0x58；
-  *   8. 上限触发后写0RPM，读取停止位置并保持零速。
+  *   7. 未触发上限时进入 3ms 三相节拍：写负转速、读E8/E9、读0x58；
+  *   8. 上限触发后写0RPM，读取停止位置建立0点；
+  *   9. 建立 [0,-300]mm 坐标系，ready=1，自动下移100mm到 -100mm。
   *
-  * 本阶段仍不包含回到待机位置、目标高度和正常速度规划。这样可以单独验证转向、
-  * 0x58 限位极性、停止响应以及软件零点记录。
+  * 坐标约定（已由实机确认）：
+  *   - 负转速 = 向上（朝上限），正转速 = 向下（远离上限）
+  *   - 原始位置随向下移动而增加
+  *   - position_mm = 0 在上限零点，负值表示零点下方距离
   ******************************************************************************
   */
 
@@ -25,8 +28,9 @@
 #define TSDA_SPEED_MODE_ACC_TIME         (1U)     /*!< 驱动器速度模式最短加速时间。 */
 #define TSDA_SPEED_MODE_DEC_TIME         (1U)     /*!< 驱动器速度模式最短减速时间。 */
 #define TSDA_RX_QUEUE_SIZE               (8U)     /*!< ISR单生产者、任务单消费者队列深度。 */
-#define TSDA_HOME_SPEED_RPM              (-250)     /*!< 实机确认负方向向上的首次寻限速度。 */
+#define TSDA_HOME_SPEED_RPM              (-250)   /*!< 实机确认负方向向上的首次寻限速度。 */
 #define TSDA_HOME_TIMEOUT_MS             (90000U) /*!< 50RPM走满300mm约72s，预留至90s。 */
+#define TSDA_HOME_RETURN_TIMEOUT_MS      (20000U) /*!< 回位到-100mm保护：100RPM≈8.3mm/s走100mm≈12s，预留20s。 */
 #define TSDA_POSITION_COUNT_PER_MM       (2000U)  /*!< 10000count/rev、5mm/rev。 */
 #define TSDA_HOME_MAX_TRAVEL_MM          (300U)   /*!< 软件允许的最大寻限位移。 */
 #define TSDA_HOME_MAX_TRAVEL_RAW         (TSDA_POSITION_COUNT_PER_MM * \
@@ -34,6 +38,13 @@
 
 /** @brief 限位触发后保持当前位置并等待机械稳定的时间，单位 ms。 */
 #define TSDA_APP_HOME_HOLD_SETTLE_MS     (50U)
+
+/* 位置闭环内部参数 */
+#define TSDA_APP_COUNTS_PER_MM           (TSDA_POSITION_COUNT_PER_MM)
+#define TSDA_APP_POSITION_TOLERANCE_RAW  ((int32_t)TSDA_APP_POSITION_TOLERANCE_MM * \
+                                          (int32_t)TSDA_APP_COUNTS_PER_MM)
+#define TSDA_APP_SW_LOWER_LIMIT_RAW \
+	((int32_t)TSDA_APP_SOFT_LOWER_LIMIT_MM * TSDA_APP_COUNTS_PER_MM)
 
 typedef enum
 {
@@ -75,12 +86,13 @@ typedef struct
 	uint8_t retry;                     /*!< 当前初始化命令已重发次数。 */
 } TSDA_AppContext;
 
-volatile TSDA_Command tsda_command = {1U};
+volatile TSDA_Command tsda_command = {1U, 0};
 volatile TSDA_Status tsda_status;
 volatile TSDA_AppState tsda_app_state = TSDA_APP_POWER_WAIT;
 
 static TSDA_AppContext tsda_app;
 
+/* ---- 前向声明 ---- */
 static void TSDA_AppSetState(TSDA_AppState state, uint32_t now_ms);
 static void TSDA_AppSetWait(TSDA_AppState wait_state,
                             TSDA_AppState retry_send_state,
@@ -93,15 +105,50 @@ static void TSDA_AppProcessRxQueue(uint32_t now_ms);
 static void TSDA_AppProcessRxFrame(const TSDA_RxFrame* frame, uint32_t now_ms);
 static void TSDA_AppRunUpperHoming(uint32_t now_ms);
 static void TSDA_AppCheckHomingProtection(uint32_t now_ms);
-static void TSDA_AppRunZeroSpeedTest(uint32_t now_ms);
+static void TSDA_AppRunDone(uint32_t now_ms);
+static int32_t TSDA_AppRawToPositionMm(int32_t current_raw);
+static int32_t TSDA_AppPositionMmToRaw(int32_t position_mm);
+static void TSDA_AppClampTargetPosition(void);
 static uint8_t TSDA_AppSendSucceeded(TSDA_Result result, uint32_t now_ms);
 static void TSDA_AppEnterError(TSDA_AppError error, uint32_t now_ms);
 
+/* ---- 坐标转换 ---- */
+
 /**
-  * @brief 初始化第二阶段App。
+  * @brief 将驱动器原始编码器位置转换为用户 mm 坐标。
+  * @note  约定：原始位置随向下（正转速）移动而增加。
+  *         position_mm = -(current_raw - origin_raw) / COUNTS_PER_MM。
+  *         上限零点 → 0mm，向下 100mm → -100mm，向下 300mm → -300mm。
+  */
+static int32_t TSDA_AppRawToPositionMm(int32_t current_raw)
+{
+	int32_t delta = current_raw - tsda_status.position_origin_raw;
+	return -(delta / (int32_t)TSDA_APP_COUNTS_PER_MM);
+}
+
+/** @brief 将用户 mm 坐标转换为原始编码器位置。 */
+static int32_t TSDA_AppPositionMmToRaw(int32_t position_mm)
+{
+	int32_t delta = -(position_mm * (int32_t)TSDA_APP_COUNTS_PER_MM);
+	return tsda_status.position_origin_raw + delta;
+}
+
+/** @brief 将用户目标位置钳位到 [0, -300]mm 安全范围内。 */
+static void TSDA_AppClampTargetPosition(void)
+{
+	if (tsda_command.target_position_mm > 0)
+		tsda_command.target_position_mm = 0;
+	if (tsda_command.target_position_mm < -(int32_t)TSDA_APP_SOFT_LOWER_LIMIT_MM)
+		tsda_command.target_position_mm = -(int32_t)TSDA_APP_SOFT_LOWER_LIMIT_MM;
+}
+
+/* ---- 初始化 ---- */
+
+/**
+  * @brief 初始化 App。
   *
-  * 所有运行态和接收队列都从零开始；servo_enable默认置1，使烧录后能自动完成
-  * 零速使能和上限寻限。ready保持0，防止尚未实现的目标高度接口提前生效。
+  * 所有运行态和接收队列都从零开始；servo_enable 默认置1，使烧录后能自动完成
+  * 零速使能和上限寻限，并在寻限完成后自动向下移动 100mm。
   */
 void TSDA_AppInit(TSDA_SendFunc send, void* send_user, uint32_t now_ms)
 {
@@ -114,11 +161,15 @@ void TSDA_AppInit(TSDA_SendFunc send, void* send_user, uint32_t now_ms)
 	          send,
 	          send_user);
 
-	/* 第二阶段上电后自动执行零速使能，并在稳定后开始 Chassis 上限寻限。 */
+	/* 上电后自动执行零速使能和寻限，完成后自动下移至 -100mm。 */
 	tsda_command.servo_enable = 1U;
+	tsda_command.target_position_mm = TSDA_APP_INITIAL_TARGET_MM;
 	tsda_status.ready = 0U;
+	tsda_status.target_position_mm = TSDA_APP_INITIAL_TARGET_MM;
 	TSDA_AppSetState(TSDA_APP_POWER_WAIT, now_ms);
 }
+
+/* ---- 主状态机 ---- */
 
 /**
   * @brief 在1ms任务中推进一次状态机。
@@ -239,6 +290,7 @@ void TSDA_AppUpdate(uint32_t now_ms)
 			tsda_status.upper_limit_active = 0U;
 			tsda_status.lower_limit_active = 0U;
 			tsda_status.position_origin_raw = 0;
+			tsda_status.current_position_mm = 0;
 			tsda_status.homing_elapsed_ms = 0U;
 			tsda_status.homing_travel_raw = 0U;
 			tsda_status.run_send_phase = 0U;
@@ -320,13 +372,42 @@ void TSDA_AppUpdate(uint32_t now_ms)
 		}
 		break;
 
-	case TSDA_APP_HOME_UPPER_ZERO_HOLD:
+	case TSDA_APP_HOME_MOVE_RETURN:
 		if (tsda_command.servo_enable == 0U)
 		{
 			TSDA_AppSetState(TSDA_APP_SEND_ZERO_BEFORE_DISABLE, now_ms);
 			break;
 		}
-		TSDA_AppRunZeroSpeedTest(now_ms);
+		/* 回位保护：20s 内未到 -100mm 视为故障。 */
+		if ((now_ms - tsda_app.state_tick_ms) >= TSDA_HOME_RETURN_TIMEOUT_MS)
+		{
+			tsda_app.pending_error = TSDA_APP_ERROR_HOME_TIMEOUT;
+			TSDA_AppSetState(TSDA_APP_ERROR, now_ms);
+			break;
+		}
+		/* bang-bang 恒速向 -100mm 移动（与 DONE 相同三拍逻辑）。 */
+		TSDA_AppRunDone(now_ms);
+		/* 到位锁轴判定：位置在目标 ±容差 内 → 置 ready 进入 DONE。 */
+		if ((tsda_status.current_position_mm - tsda_command.target_position_mm) >=
+		        -(int32_t)TSDA_APP_POSITION_TOLERANCE_MM &&
+		    (tsda_status.current_position_mm - tsda_command.target_position_mm) <=
+		         (int32_t)TSDA_APP_POSITION_TOLERANCE_MM)
+		{
+			tsda_status.homing_done = 1U;
+			tsda_status.ready = 1U;
+			tsda_status.run_send_phase = 0U;
+			TSDA_AppSetState(TSDA_APP_DONE, now_ms);
+		}
+		break;
+
+	case TSDA_APP_DONE:
+		if (tsda_command.servo_enable == 0U)
+		{
+			TSDA_AppSetState(TSDA_APP_SEND_ZERO_BEFORE_DISABLE, now_ms);
+			break;
+		}
+		TSDA_AppClampTargetPosition();
+		TSDA_AppRunDone(now_ms);
 		break;
 
 	case TSDA_APP_SEND_ZERO_BEFORE_DISABLE:
@@ -365,6 +446,8 @@ void TSDA_AppUpdate(uint32_t now_ms)
 	}
 }
 
+/* ---- CAN 接收 ---- */
+
 /**
   * @brief CAN1接收中断的轻量入口。
   *
@@ -397,6 +480,8 @@ void TSDA_AppOnCanRx(uint32_t can_id, const uint8_t* data, uint8_t len)
 	tsda_app.rx_queue.write_index = next_index;
 }
 
+/* ---- 外部查询接口 ---- */
+
 /** @brief 给LED等外围任务提供稳定的布尔错误查询，不暴露私有上下文。 */
 uint8_t TSDA_AppIsError(void)
 {
@@ -408,6 +493,22 @@ uint8_t TSDA_AppIsServoEnabled(void)
 {
 	return tsda_status.servo_enabled;
 }
+
+/**
+  * @brief 写入目标高度(mm)并自动钳位到 [0,-300]mm 范围内。
+  * @note 目标被钳位后，done模式不会试图越过软件上下限。
+  */
+void TSDA_AppSetTargetHeightMm(int32_t target_mm)
+{
+	if (target_mm > 0)
+		target_mm = 0;
+	if (target_mm < -(int32_t)TSDA_APP_SOFT_LOWER_LIMIT_MM)
+		target_mm = -(int32_t)TSDA_APP_SOFT_LOWER_LIMIT_MM;
+
+	tsda_command.target_position_mm = target_mm;
+}
+
+/* ---- 状态切换工具 ---- */
 
 /**
   * @brief 统一完成状态切换和进入时刻记录。
@@ -452,7 +553,7 @@ static uint8_t TSDA_AppCommandIntervalElapsed(uint32_t now_ms)
 
 /**
   * @brief 处理初始化命令的300ms超时和最多3次重发。
-  * @note 寻限运行态不等待周期速度写ACK，因此不会被此超时处理阻塞三相节拍。
+  * @note 寻限运行态和位置控制态不等待周期ACK，因此不会被此超时阻塞三相节拍。
   */
 static void TSDA_AppHandleWaitTimeout(uint32_t now_ms)
 {
@@ -468,6 +569,8 @@ static void TSDA_AppHandleWaitTimeout(uint32_t now_ms)
 	tsda_app.retry++;
 	TSDA_AppSetState(tsda_app.retry_send_state, now_ms);
 }
+
+/* ---- 回包解析 ---- */
 
 /** @brief 在任务上下文取出当前全部缓存帧，并按接收顺序解析。 */
 static void TSDA_AppProcessRxQueue(uint32_t now_ms)
@@ -486,7 +589,7 @@ static void TSDA_AppProcessRxQueue(uint32_t now_ms)
   * @brief 解析一帧TSDA回包并执行由该回包授权的状态跳转。
   *
   * 解析优先级为0x58、E8/E9、E4、初始化E3、通用写ACK。运行态回包先更新
-  * FreeMASTER观测量，再根据当前WAIT/HOME状态决定是否切换；其他帧只计数不误判。
+  * FreeMASTER观测量，再根据当前WAIT/HOME/DONE状态决定是否切换。
   */
 static void TSDA_AppProcessRxFrame(const TSDA_RxFrame* frame, uint32_t now_ms)
 {
@@ -526,7 +629,7 @@ static void TSDA_AppProcessRxFrame(const TSDA_RxFrame* frame, uint32_t now_ms)
 		return;
 	}
 
-	/* E8/E9 始终更新原始位置，并在两个等待状态中承担明确的状态跳转职责。 */
+	/* E8/E9 始终更新原始位置和用户坐标，并在等待状态中承担状态跳转职责。 */
 	if (TSDA_IsExpectedReadResponse(&tsda_app.servo,
 	                                frame->can_id,
 	                                data,
@@ -538,6 +641,8 @@ static void TSDA_AppProcessRxFrame(const TSDA_RxFrame* frame, uint32_t now_ms)
 		uint16_t low = (uint16_t)TSDA_GetResponseValue2(data);
 		tsda_status.current_position_raw =
 			(int32_t)(((uint32_t)high << 16U) | (uint32_t)low);
+		tsda_status.current_position_mm =
+			(int32_t)TSDA_AppRawToPositionMm(tsda_status.current_position_raw);
 
 		if (tsda_app_state == TSDA_APP_WAIT_HOME_START_POSITION)
 		{
@@ -563,10 +668,17 @@ static void TSDA_AppProcessRxFrame(const TSDA_RxFrame* frame, uint32_t now_ms)
 			}
 			else
 			{
+				/*
+				 * 上限停止位置记录为软件零点，建立 [0,-300]mm 坐标系。
+				 * 下发初始目标 -100mm，进入 bang-bang 回位阶段；
+				 * ready 在回位到位锁轴后才置1。
+				 */
 				tsda_status.position_origin_raw = tsda_status.current_position_raw;
-				tsda_status.homing_done = 1U;
+				tsda_status.current_position_mm = 0;
 				tsda_status.run_send_phase = 0U;
-				TSDA_AppSetState(TSDA_APP_HOME_UPPER_ZERO_HOLD, now_ms);
+				tsda_command.target_position_mm = TSDA_APP_INITIAL_TARGET_MM;
+				tsda_status.target_position_mm = TSDA_APP_INITIAL_TARGET_MM;
+				TSDA_AppSetState(TSDA_APP_HOME_MOVE_RETURN, now_ms);
 			}
 		}
 		return;
@@ -628,12 +740,14 @@ static void TSDA_AppProcessRxFrame(const TSDA_RxFrame* frame, uint32_t now_ms)
 	}
 }
 
+/* ---- 寻限 ---- */
+
 /**
   * @brief 执行 Chassis 上限寻限的3相通信节拍。
   *
-  * 正转速已经由实机方向确认表示向上。每3ms依次写 +50RPM、读取 E8/E9、
+  * 负转速已经由实机方向确认表示向上。每3ms依次写负转速、读取 E8/E9、
   * 读取0x58。限位回包在下一次 AppUpdate 开始时处理，一旦触发就立即转入
-  * TSDA_APP_SEND_HOME_STOP，不再发送下一拍正速度。
+  * TSDA_APP_SEND_HOME_STOP，不再发送下一拍速度。
   */
 static void TSDA_AppRunUpperHoming(uint32_t now_ms)
 {
@@ -693,23 +807,45 @@ static void TSDA_AppCheckHomingProtection(uint32_t now_ms)
 	}
 }
 
+/* ---- 位置闭环控制 ---- */
+
 /**
-  * @brief 执行上限触发后的零速保持3相通信节拍。
+  * @brief done模式三相节拍（3ms周期，每相1ms）。
   *
-  * MotorTask 每1ms调用一次 AppUpdate，因此三个相位依次占用三个调度周期：
-  *   phase0：写 0x10=0RPM，明确保持零速；
-  *   phase1：读 E8/E9，验证位置回包链路；
-  *   phase2：读 E4，验证实际转速是否接近0。
+  * MotorTask 每1ms调用一次 AppUpdate，三个相位依次占用三个调度周期：
+  *   phase0：写入目标速度（恒定速度，由位置误差决定方向，到位时为0RPM锁轴）；
+  *   phase1：读 E8/E9，更新当前位置坐标；
+  *   phase2：读 E4，更新实际转速。
   */
-static void TSDA_AppRunZeroSpeedTest(uint32_t now_ms)
+static void TSDA_AppRunDone(uint32_t now_ms)
 {
 	TSDA_Result result;
-	
+	int32_t target_raw;
+	int32_t error;
+	int32_t abs_error;
+	int16_t move_speed;
+
+	/* 根据最新位置误差计算本拍目标速度，误差超出容差才运动 */
+	target_raw = TSDA_AppPositionMmToRaw(tsda_command.target_position_mm);
+	error = target_raw - tsda_status.current_position_raw;
+	abs_error = (error < 0) ? -error : error;
+
+	if (abs_error > TSDA_APP_POSITION_TOLERANCE_RAW)
+		move_speed = (error > 0)
+			? (int16_t)TSDA_APP_POSITION_MOVE_SPEED_RPM
+			: (int16_t)(-(int16_t)TSDA_APP_POSITION_MOVE_SPEED_RPM);
+	else
+		move_speed = 0;
+
+	/* 同步用户可见的目标位置 */
+	tsda_status.target_position_mm = tsda_command.target_position_mm;
+
+	/* 三拍：写目标速度 → 读位置 → 读实际转速 */
 	switch (tsda_status.run_send_phase)
 	{
 	case 0U:
-		result = TSDA_SetTargetSpeedRpm(&tsda_app.servo, 100);
-		tsda_status.commanded_speed_rpm = 100;
+		result = TSDA_SetTargetSpeedRpm(&tsda_app.servo, move_speed);
+		tsda_status.commanded_speed_rpm = move_speed;
 		break;
 	case 1U:
 		result = TSDA_ReadReg2(&tsda_app.servo,
@@ -719,8 +855,6 @@ static void TSDA_AppRunZeroSpeedTest(uint32_t now_ms)
 	default:
 		result = TSDA_ReadReg(&tsda_app.servo, TSDA_REG_OUTPUT_SPEED);
 		break;
-
-	// if (tsda_status.current_position_raw - )
 	}
 
 	if (TSDA_AppSendSucceeded(result, now_ms) == 0U)
@@ -728,6 +862,8 @@ static void TSDA_AppRunZeroSpeedTest(uint32_t now_ms)
 
 	tsda_status.run_send_phase = (uint8_t)((tsda_status.run_send_phase + 1U) % 3U);
 }
+
+/* ---- 通用工具 ---- */
 
 /**
   * @brief 统一处理Driver发送结果并维护tx_count。

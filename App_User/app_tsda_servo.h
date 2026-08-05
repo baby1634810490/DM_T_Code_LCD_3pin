@@ -1,10 +1,10 @@
 /**
   ******************************************************************************
   * @file    app_tsda_servo.h
-  * @brief   TSDA Chassis 速度模式分阶段重写 - 第二阶段接口。
+  * @brief   TSDA Chassis 速度模式重写 - 位置闭环控制与上下限坐标系。
   *
-  * 第二阶段在零速使能基础上增加 Chassis 上限自动寻限。目标高度和正常速度规划
-  * 尚未开放，因此 ready 仍保持0。
+  * 本阶段在寻限完成基础上建立 [0,-300]mm 用户坐标系，支持位置闭环移动和
+  * 软件限位保护。done模式使用恒定速度 bang-bang 控制，无速度规划器。
   ******************************************************************************
   */
 
@@ -23,12 +23,19 @@ extern "C" {
 #define TSDA_APP_ACK_TIMEOUT_MS           (300U)  /*!< 初始化读写命令等待匹配回包的超时。 */
 #define TSDA_APP_RETRY_MAX                (3U)    /*!< 一条初始化命令超时后的最大重发次数。 */
 #define TSDA_APP_ENABLE_STABLE_MS         (1500U) /*!< Chassis使能和自动抱闸释放后的静默稳定期。 */
+#define TSDA_APP_HOME_STABLE_MS           (50U)   /*!< 上限触发后，等待机械稳定的时间。 */
+
+/* 位置闭环控制参数 */
+#define TSDA_APP_SOFT_LOWER_LIMIT_MM      (300)   /*!< 软件下限距离(mm)，上限为0，下限为-300。 */
+#define TSDA_APP_POSITION_MOVE_SPEED_RPM  (100)   /*!< 位置移动恒定速度 RPM。 */
+#define TSDA_APP_POSITION_TOLERANCE_MM    (1)     /*!< 位置到位容差(mm)。 */
+#define TSDA_APP_INITIAL_TARGET_MM        (-100)  /*!< 寻限完成后自动下移100mm的目标位置。 */
 
 /**
   * @brief TSDA App 非阻塞状态机。
   *
   * SEND 状态只负责发送一帧；WAIT 状态等待严格匹配的回包并处理超时重试；
-  * HOME_FIND_UPPER 和 HOME_UPPER_ZERO_HOLD 是1ms任务驱动的三相周期状态。
+  * HOME_FIND_UPPER 和 DONE 是1ms任务驱动的三相周期状态。
   */
 typedef enum
 {
@@ -47,12 +54,14 @@ typedef enum
 	TSDA_APP_WAIT_HOME_LIMIT_CHECK,         /*!< 等待初始限位状态。 */
 	TSDA_APP_SEND_HOME_START_POSITION,      /*!< 读取寻限起点E8/E9。 */
 	TSDA_APP_WAIT_HOME_START_POSITION,      /*!< 等待并保存寻限起点。 */
-	TSDA_APP_HOME_FIND_UPPER,               /*!< +50RPM向上寻限三相运行状态。 */
+	TSDA_APP_HOME_FIND_UPPER,               /*!< 负转速向上寻限三相运行状态。 */
 	TSDA_APP_SEND_HOME_STOP,                /*!< 限位或保护触发后写0RPM。 */
 	TSDA_APP_WAIT_HOME_STOP_ACK,            /*!< 等待零速停止命令ACK。 */
+	TSDA_APP_WAIT_HOME_STABLE,              /*!< 停止后等待50ms机械稳定。 */
 	TSDA_APP_SEND_HOME_ZERO_POSITION,       /*!< 停止后重新读取E8/E9。 */
 	TSDA_APP_WAIT_HOME_ZERO_POSITION,       /*!< 保存软件零点或在保护停止后进入ERROR。 */
-	TSDA_APP_HOME_UPPER_ZERO_HOLD,          /*!< 上限寻限成功后的零速锁轴三相状态。 */
+	TSDA_APP_HOME_MOVE_RETURN,              /*!< bang-bang恒速向-100移动，到位后置ready。 */
+	TSDA_APP_DONE,                          /*!< done模式：3ms三相周期闭环保持/移动。 */
 	TSDA_APP_SEND_ZERO_BEFORE_DISABLE,      /*!< 外部请求失能时先写0RPM。 */
 	TSDA_APP_WAIT_ZERO_BEFORE_DISABLE_ACK,  /*!< 确认零速命令后再失能。 */
 	TSDA_APP_SEND_DISABLE,                  /*!< 写0x00=0失能。 */
@@ -67,18 +76,18 @@ typedef enum
 	TSDA_APP_ERROR_SEND,           /*!< 板级 CAN 发送适配器返回失败。 */
 	TSDA_APP_ERROR_ACK_TIMEOUT,    /*!< 初始化命令达到最大重试次数仍无匹配回包。 */
 	TSDA_APP_ERROR_HOME_TIMEOUT,   /*!< 寻限达到90s仍未触发上限。 */
-	TSDA_APP_ERROR_HOME_TRAVEL ,    /*!< 寻限累计达到300mm仍未触发上限。 */
+	TSDA_APP_ERROR_HOME_TRAVEL,    /*!< 寻限累计达到300mm仍未触发上限。 */
 } TSDA_AppError;
 
-/** @brief 当前阶段唯一外部命令；目标高度接口将在后续阶段增加。 */
 typedef struct
 {
-	uint8_t servo_enable; /*!< 1=请求使能并重新寻限，0=先零速再失能。 */
+	uint8_t servo_enable;       /*!< 1=请求使能并重新寻限，0=先零速再失能。 */
+	int32_t target_position_mm; /*!< 目标位置(mm)，范围[-300,0]，0=上限零点，负值=下方。 */
 } TSDA_Command;
 
 /**
-  * @brief FreeMASTER 可直接观察的第二阶段状态与诊断快照。
-  * @note 这些字段由 App 写入，通信层和调试工具只读；ready 本阶段固定为0。
+  * @brief FreeMASTER 可直接观察的状态与诊断快照。
+  * @note 这些字段由 App 写入，通信层和调试工具只读。
   */
 typedef struct
 {
@@ -88,13 +97,15 @@ typedef struct
 	int32_t current_position_raw;        /*!< E8/E9组合得到的驱动器原始位置。 */
 	int32_t homing_start_position_raw;   /*!< 本轮向上寻限开始位置。 */
 	int32_t position_origin_raw;         /*!< 上限停止后记录的软件零点原始位置。 */
+	int32_t current_position_mm;         /*!< 当前位置(mm)，相对上限零点，负值=零点下方。 */
+	int32_t target_position_mm;          /*!< 当前生效的目标位置(mm)。 */
 	uint32_t homing_elapsed_ms;          /*!< 本轮向上寻限已运行时间。 */
 	uint32_t homing_travel_raw;          /*!< 当前位置与寻限起点的原始计数差绝对值。 */
 	int16_t output_speed_rpm;            /*!< E4返回的实际有符号转速。 */
 	int16_t commanded_speed_rpm;         /*!< App最后成功交给底层的0x10目标转速。 */
 	uint8_t online;                      /*!< 启动阶段收到匹配E3回包后锁存为1。 */
 	uint8_t servo_enabled;               /*!< App完成使能稳定期后置1，失能后清0。 */
-	uint8_t ready;                       /*!< 正常目标控制开放标志，本阶段固定为0。 */
+	uint8_t ready;                       /*!< 正常目标控制开放标志，寻限建立零点后置1。 */
 	uint8_t upper_limit_active;          /*!< 0x58 data[3]归一化结果：1=上限触发。 */
 	uint8_t lower_limit_active;          /*!< 0x58 data[4]归一化结果：1=下限触发。 */
 	uint8_t homing_done;                 /*!< 最终零点位置读取并保存成功后置1。 */
@@ -116,6 +127,12 @@ void TSDA_AppInit(TSDA_SendFunc send, void* send_user, uint32_t now_ms);
 
 /** @brief 由1ms MotorTask调用一次，推进非阻塞状态机和三相节拍。 */
 void TSDA_AppUpdate(uint32_t now_ms);
+
+/**
+  * @brief 写入目标高度(mm)，超出[-300,0]范围自动钳位到边界。
+  * @note 仅当 ready=1（寻限完成）后生效；done模式每拍按此目标计算速度方向。
+  */
+void TSDA_AppSetTargetHeightMm(int32_t target_mm);
 
 /**
   * @brief CAN1接收中断的唯一TSDA入口，只复制完整8字节帧到环形队列。
