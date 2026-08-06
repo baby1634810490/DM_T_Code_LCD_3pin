@@ -1,7 +1,7 @@
 /**
   ******************************************************************************
   * @file    app_tsda_servo.c
-  * @brief   TSDA Chassis 速度模式重写 - 位置闭环控制实现。
+  * @brief   TSDA统一速度模式App - 位置闭环及硬件能力策略实现。
   *
   * 状态机流程：
   *   1. 读取 E3，确认 CAN1 上驱动器在线；
@@ -9,11 +9,11 @@
   *   3. 写 0x02=0x00C4 和 0x0A=0x0101；
   *   4. 在使能前写 0x10=0RPM；
   *   5. 使能并等待驱动器稳定；
-  *   6. 读取 0x58 和寻限起点 E8/E9；
-  *   7. 未触发上限时进入 3ms 三相节拍：写负转速、读E8/E9、读0x58；
+  *   6. Chassis读取0x58，3Pin采样PD7，然后读取寻限起点E8/E9；
+  *   7. 未触发上限时进入三相节拍：写负转速、读E8/E9、读限位或E4；
   *   8. 上限触发后写0RPM，等待50ms并读取停止位置建立0点；
-  *   9. 建立 [0,-300]mm 坐标系，固定速度回到-100mm并停稳；
-  *  10. ready=1后开放实时目标、最大速度和加速度，DONE状态执行PVP。
+  *   9. 建立 [0,-300]mm 坐标系；3Pin第二阶段停在零点，Chassis继续返回-100mm；
+  *  10. Chassis回位停稳ready=1后开放实时目标、最大速度和加速度。
   *
   * 坐标约定（已由实机确认）：
   *   - 负转速 = 向上（朝上限），正转速 = 向下（远离上限）
@@ -24,13 +24,14 @@
 
 #include "app_tsda_servo.h"
 #include "tsda_slide_motion.h"
+#include "tsda_config.h"
 
 #include <string.h>
 
 #define TSDA_SPEED_MODE_ACC_TIME         (1U)     /*!< 驱动器速度模式最短加速时间。 */
 #define TSDA_SPEED_MODE_DEC_TIME         (1U)     /*!< 驱动器速度模式最短减速时间。 */
 #define TSDA_RX_QUEUE_SIZE               (8U)     /*!< ISR单生产者、任务单消费者队列深度。 */
-#define TSDA_HOME_SPEED_RPM              (-250)   /*!< 实机确认负方向向上的首次寻限速度。 */
+#define TSDA_LIMIT_SAMPLE_PERIOD_MS      (5U)     /*!< 3Pin板级限位输入的采样周期。 */
 #define TSDA_HOME_TIMEOUT_MS             (90000U) /*!< 50RPM走满300mm约72s，预留至90s。 */
 #define TSDA_HOME_RETURN_TIMEOUT_MS      (20000U) /*!< 回位到-100mm保护：100RPM≈8.3mm/s走100mm≈12s，预留20s。 */
 #define TSDA_POSITION_COUNT_PER_MM       (2000U)  /*!< 10000count/rev、5mm/rev。 */
@@ -82,8 +83,10 @@ typedef struct
 	TSDA_AppState retry_send_state;    /*!< 超时后返回的SEND状态。 */
 	uint32_t state_tick_ms;            /*!< 当前状态进入时刻。 */
 	uint32_t homing_start_tick_ms;     /*!< 90s寻限保护计时起点。 */
+	uint32_t limit_sample_tick_ms;     /*!< 3Pin板级限位最近一次采样时刻。 */
 	TSDA_AppError pending_error;       /*!< 先零速停止、后锁存的寻限错误。 */
 	uint8_t retry;                     /*!< 当前初始化命令已重发次数。 */
+	TSDA_BoardIo board_io;             /*!< 由板级层注入的抱闸和限位接口。 */
 	TSDA_SlideMotion motion;           /*!< ready后DONE状态使用的浮点速度规划状态。 */
 } TSDA_AppContext;
 
@@ -112,8 +115,13 @@ static void TSDA_AppProcessRxQueue(uint32_t now_ms);
 static void TSDA_AppProcessRxFrame(const TSDA_RxFrame* frame, uint32_t now_ms);
 static void TSDA_AppRunUpperHoming(uint32_t now_ms);
 static void TSDA_AppCheckHomingProtection(uint32_t now_ms);
+static void TSDA_AppHandleHomingProtectionError(TSDA_AppError error, uint32_t now_ms);
 static void TSDA_AppRunHomeReturnFixedSpeed(uint32_t now_ms);
 static void TSDA_AppRunDone(uint32_t now_ms);
+static void TSDA_AppSampleBoardLimits(uint32_t now_ms);
+static void TSDA_AppStartAutomaticHoming(uint32_t now_ms);
+static void TSDA_AppSetBrakeRelease(uint8_t release);
+static void TSDA_AppStartBrakeEngage(uint32_t now_ms);
 static float TSDA_AppRawToHeightMm(int32_t current_raw);
 static int32_t TSDA_AppHeightMmToRaw(float height_mm);
 static void TSDA_AppClampTargetPosition(void);
@@ -158,6 +166,80 @@ static void TSDA_AppClampTargetPosition(void)
 	tsda_slide_control.target_height_mm = target;
 }
 
+/* ---- 硬件能力适配 ---- */
+
+/**
+  * @brief 根据只读能力配置执行抱闸命令。
+  * @param release 1=释放抱闸，0=闭合抱闸。
+  * @note Chassis 的抱闸由驱动器随使能自动控制，因此该分支绝不访问 MCU GPIO。
+  */
+static void TSDA_AppSetBrakeRelease(uint8_t release)
+{
+	if (tsda_config.brake_control != TSDA_BRAKE_CONTROL_MCU)
+	{
+		tsda_status.brake_release_command = 0U;
+		return;
+	}
+
+	release = (release != 0U) ? 1U : 0U;
+	if (tsda_app.board_io.write_brake_release != NULL)
+		tsda_app.board_io.write_brake_release(release, tsda_app.board_io.user);
+	tsda_status.brake_release_command = release;
+}
+
+/**
+  * @brief 每5ms把3Pin板级上下限位复制到统一状态字段。
+  * @note 两个输入均按高电平有效。物理下限只供观察，不参与运动停止判断。
+  */
+static void TSDA_AppSampleBoardLimits(uint32_t now_ms)
+{
+	if (tsda_config.limit_observer != TSDA_LIMIT_OBSERVER_BOARD_IO)
+		return;
+	if ((now_ms - tsda_app.limit_sample_tick_ms) < TSDA_LIMIT_SAMPLE_PERIOD_MS)
+		return;
+
+	tsda_app.limit_sample_tick_ms = now_ms;
+	tsda_status.upper_limit_active =
+		(tsda_app.board_io.read_upper_limit(tsda_app.board_io.user) != 0U) ? 1U : 0U;
+	tsda_status.lower_limit_active =
+		(tsda_app.board_io.read_lower_limit(tsda_app.board_io.user) != 0U) ? 1U : 0U;
+}
+
+/**
+  * @brief 根据限位观察能力进入自动寻限入口。
+  * @note Chassis 先读取0x58；3Pin直接读取E8/E9寻限起点，因为板级限位已经
+  *       由GPIO采样得到，不允许为了复用流程而额外发送0x58。
+  */
+static void TSDA_AppStartAutomaticHoming(uint32_t now_ms)
+{
+	if (tsda_config.limit_observer == TSDA_LIMIT_OBSERVER_BOARD_IO)
+	{
+		/* 强制刷新一次当前上限状态，避免使用释放抱闸等待期末尾的旧采样。 */
+		tsda_app.limit_sample_tick_ms = now_ms - TSDA_LIMIT_SAMPLE_PERIOD_MS;
+		TSDA_AppSampleBoardLimits(now_ms);
+		TSDA_AppSetState(TSDA_APP_SEND_HOME_START_POSITION, now_ms);
+	}
+	else
+	{
+		TSDA_AppSetState(TSDA_APP_SEND_HOME_LIMIT_CHECK, now_ms);
+	}
+}
+
+/** @brief 从零速ACK进入硬件能力对应的正常抱闸/失能流程。 */
+static void TSDA_AppStartBrakeEngage(uint32_t now_ms)
+{
+	if (tsda_config.brake_control == TSDA_BRAKE_CONTROL_MCU)
+	{
+		TSDA_AppSetBrakeRelease(0U);
+		TSDA_AppSetState(TSDA_APP_WAIT_BRAKE_ENGAGE, now_ms);
+	}
+	else
+	{
+		/* Chassis 保持原有行为：不等待 MCU 抱闸，进入原失能状态。 */
+		TSDA_AppSetState(TSDA_APP_SEND_DISABLE, now_ms);
+	}
+}
+
 /* ---- 初始化 ---- */
 
 /**
@@ -166,10 +248,15 @@ static void TSDA_AppClampTargetPosition(void)
   * 所有运行态和接收队列都从零开始；servo_enable 默认置1，使烧录后能自动完成
   * 零速使能和上限寻限，并在寻限完成后自动向下移动 100mm。
   */
-void TSDA_AppInit(TSDA_SendFunc send, void* send_user, uint32_t now_ms)
+void TSDA_AppInit(TSDA_SendFunc send,
+                  void* send_user,
+                  const TSDA_BoardIo* board_io,
+                  uint32_t now_ms)
 {
 	memset(&tsda_app, 0, sizeof(tsda_app));
 	memset((void*)&tsda_status, 0, sizeof(tsda_status));
+	if (board_io != NULL)
+		tsda_app.board_io = *board_io;
 
 	TSDA_Init(&tsda_app.servo,
 	          TSDA_DEFAULT_CAN_ID,
@@ -178,6 +265,18 @@ void TSDA_AppInit(TSDA_SendFunc send, void* send_user, uint32_t now_ms)
 	          send_user);
 
 	TSDA_SlideMotionReset(&tsda_app.motion, 1U);
+
+	/* 3Pin 上电初始化已经把 PE15 配置为低电平；这里再次写闭合命令，
+	 * 使 App 的命令快照和实际 IO 从状态机启动之初保持一致。 */
+	TSDA_AppSetBrakeRelease(0U);
+	if ((tsda_config.limit_observer == TSDA_LIMIT_OBSERVER_BOARD_IO) &&
+	    ((tsda_app.board_io.read_upper_limit == NULL) ||
+	     (tsda_app.board_io.read_lower_limit == NULL) ||
+	     (tsda_app.board_io.write_brake_release == NULL)))
+	{
+		TSDA_AppEnterError(TSDA_APP_ERROR_BOARD_IO, now_ms);
+		return;
+	}
 
 	/* 上电后自动执行零速使能和寻限，完成后自动下移至 -100mm。 */
 	tsda_command.servo_enable = 1U;
@@ -309,7 +408,13 @@ void TSDA_AppUpdate(uint32_t now_ms)
 		 */
 		if (tsda_command.servo_enable == 0U)
 		{
-			TSDA_AppSetState(TSDA_APP_SEND_DISABLE, now_ms);
+			/* 3Pin按完整正常停机链重新确认0RPM；Chassis保持原代码在
+			 * 使能稳定窗口内直接失能的行为。这里判断的是抱闸能力，
+			 * 不是产品编号。 */
+			if (tsda_config.brake_control == TSDA_BRAKE_CONTROL_MCU)
+				TSDA_AppSetState(TSDA_APP_SEND_ZERO_BEFORE_DISABLE, now_ms);
+			else
+				TSDA_AppSetState(TSDA_APP_SEND_DISABLE, now_ms);
 			break;
 		}
 		if ((now_ms - tsda_app.state_tick_ms) >= TSDA_APP_ENABLE_STABLE_MS)
@@ -325,7 +430,30 @@ void TSDA_AppUpdate(uint32_t now_ms)
 			tsda_status.run_send_phase = 0U;
 			tsda_app.pending_error = TSDA_APP_ERROR_NONE;
 			TSDA_SlideMotionReset(&tsda_app.motion, 1U);
-			TSDA_AppSetState(TSDA_APP_SEND_HOME_LIMIT_CHECK, now_ms);
+
+			/* Chassis 的抱闸由驱动器自动联动，本调用不会操作 GPIO；
+			 * 3Pin 则在完整1500ms使能稳定期后才拉高 PE15。 */
+			TSDA_AppSetBrakeRelease(1U);
+			if (tsda_config.brake_release_settle_ms != 0U)
+				TSDA_AppSetState(TSDA_APP_BRAKE_RELEASE_SETTLE_WAIT, now_ms);
+			else
+				TSDA_AppStartAutomaticHoming(now_ms);
+		}
+		break;
+
+	case TSDA_APP_BRAKE_RELEASE_SETTLE_WAIT:
+		/* 3Pin 抱闸线圈释放后必须完整等待2000ms。本窗口不发运动命令，
+		 * 驱动器继续保持此前已经确认的0RPM锁轴命令。 */
+		if (tsda_command.servo_enable == 0U)
+		{
+			TSDA_AppSetState(TSDA_APP_SEND_ZERO_BEFORE_DISABLE, now_ms);
+			break;
+		}
+		TSDA_AppSampleBoardLimits(now_ms);
+		if ((now_ms - tsda_app.state_tick_ms) >= tsda_config.brake_release_settle_ms)
+		{
+			tsda_status.run_send_phase = 0U;
+			TSDA_AppStartAutomaticHoming(now_ms);
 		}
 		break;
 
@@ -364,6 +492,28 @@ void TSDA_AppUpdate(uint32_t now_ms)
 		{
 			TSDA_AppSetState(TSDA_APP_SEND_ZERO_BEFORE_DISABLE, now_ms);
 			break;
+		}
+		/* 3Pin板级上限不占用CAN三相节拍。每5ms采样一次；触发后在当前
+		 * AppUpdate内立即发送0RPM并进入ACK等待，不再发送下一条寻限速度。 */
+		if (tsda_config.limit_observer == TSDA_LIMIT_OBSERVER_BOARD_IO)
+		{
+			TSDA_AppSampleBoardLimits(now_ms);
+			if (tsda_status.upper_limit_active != 0U)
+			{
+				tsda_app.pending_error = TSDA_APP_ERROR_NONE;
+				result = TSDA_SetTargetSpeedRpm(&tsda_app.servo, 0);
+				if (TSDA_AppSendSucceeded(result, now_ms) != 0U)
+				{
+					tsda_status.commanded_speed_rpm = 0;
+					TSDA_AppSetWait(TSDA_APP_WAIT_HOME_STOP_ACK,
+					                TSDA_APP_SEND_HOME_STOP,
+					                TSDA_WAIT_WRITE,
+					                TSDA_MakeAckExpect(TSDA_REG_TARGET_SPEED,
+					                                   TSDA_REG_UNUSED),
+					                now_ms);
+				}
+				break;
+			}
 		}
 		TSDA_AppCheckHomingProtection(now_ms);
 		if (tsda_app_state == TSDA_APP_HOME_FIND_UPPER)
@@ -452,6 +602,22 @@ void TSDA_AppUpdate(uint32_t now_ms)
 			                TSDA_WAIT_WRITE,
 			                TSDA_MakeAckExpect(TSDA_REG_TARGET_SPEED, TSDA_REG_UNUSED),
 			                now_ms);
+		}
+		break;
+
+	case TSDA_APP_WAIT_BRAKE_ENGAGE:
+		/* 3Pin 正常停机顺序：0RPM ACK -> 闭合抱闸 -> 等待200ms -> 失能。
+		 * 到时后直接发送失能，不额外叠加初始化命令的10ms间隔。 */
+		if ((now_ms - tsda_app.state_tick_ms) >= tsda_config.brake_engage_delay_ms)
+		{
+			result = TSDA_Disable(&tsda_app.servo);
+			if (TSDA_AppSendSucceeded(result, now_ms) != 0U)
+			{
+				tsda_status.servo_enabled = 0U;
+				tsda_status.output_speed_rpm = 0;
+				TSDA_SlideMotionReset(&tsda_app.motion, 1U);
+				TSDA_AppSetState(TSDA_APP_DISABLED, now_ms);
+			}
 		}
 		break;
 
@@ -703,14 +869,13 @@ static void TSDA_AppProcessRxFrame(const TSDA_RxFrame* frame, uint32_t now_ms)
 			}
 			else
 			{
-				/*
-				 * 上限停止位置记录为软件零点，建立 [0,-300]mm 坐标系。
-				 * 下发初始目标 -100mm，进入 bang-bang 回位阶段；
-				 * ready 在回位到位锁轴后才置1。
-				 */
+				/* 上限停止位置记录为软件零点，建立 [0,-300]mm 坐标系。 */
 				tsda_status.position_origin_raw = tsda_status.current_position_raw;
 				tsda_status.current_height_mm = 0.0f;
 				tsda_status.run_send_phase = 0U;
+
+				/* 两种Profile统一进入自动回位：固定+200RPM向下返回-100mm。
+				 * Profile只影响此前的限位来源和抱闸动作，不改变业务状态推进。 */
 				tsda_status.target_height_mm = (float)TSDA_APP_INITIAL_TARGET_MM;
 				TSDA_AppSetState(TSDA_APP_HOME_MOVE_RETURN, now_ms);
 			}
@@ -766,7 +931,7 @@ static void TSDA_AppProcessRxFrame(const TSDA_RxFrame* frame, uint32_t now_ms)
 			TSDA_AppSetState(TSDA_APP_WAIT_HOME_STABLE, now_ms);
 			break;
 		case TSDA_APP_WAIT_ZERO_BEFORE_DISABLE_ACK:
-			TSDA_AppSetState(TSDA_APP_SEND_DISABLE, now_ms);
+			TSDA_AppStartBrakeEngage(now_ms);
 			break;
 		default:
 			break;
@@ -790,8 +955,8 @@ static void TSDA_AppRunUpperHoming(uint32_t now_ms)
 	switch (tsda_status.run_send_phase)
 	{
 	case 0U:
-		result = TSDA_SetTargetSpeedRpm(&tsda_app.servo, TSDA_HOME_SPEED_RPM);
-		tsda_status.commanded_speed_rpm = TSDA_HOME_SPEED_RPM;
+		result = TSDA_SetTargetSpeedRpm(&tsda_app.servo, tsda_config.homing_speed_rpm);
+		tsda_status.commanded_speed_rpm = tsda_config.homing_speed_rpm;
 		break;
 	case 1U:
 		result = TSDA_ReadReg2(&tsda_app.servo,
@@ -799,7 +964,10 @@ static void TSDA_AppRunUpperHoming(uint32_t now_ms)
 		                           TSDA_REG_FEEDBACK_POS_LOW);
 		break;
 	default:
-		result = TSDA_ReadReg(&tsda_app.servo, TSDA_REG_PORT_LIMIT_STATUS);
+		if (tsda_config.limit_observer == TSDA_LIMIT_OBSERVER_BOARD_IO)
+			result = TSDA_ReadReg(&tsda_app.servo, TSDA_REG_OUTPUT_SPEED);
+		else
+			result = TSDA_ReadReg(&tsda_app.servo, TSDA_REG_PORT_LIMIT_STATUS);
 		break;
 	}
 
@@ -829,14 +997,32 @@ static void TSDA_AppCheckHomingProtection(uint32_t now_ms)
 
 	if (tsda_status.homing_travel_raw >= TSDA_HOME_MAX_TRAVEL_RAW)
 	{
-		tsda_app.pending_error = TSDA_APP_ERROR_HOME_TRAVEL;
-		TSDA_AppSetState(TSDA_APP_SEND_HOME_STOP, now_ms);
+		TSDA_AppHandleHomingProtectionError(TSDA_APP_ERROR_HOME_TRAVEL, now_ms);
 		return;
 	}
 
 	if (tsda_status.homing_elapsed_ms >= TSDA_HOME_TIMEOUT_MS)
+		TSDA_AppHandleHomingProtectionError(TSDA_APP_ERROR_HOME_TIMEOUT, now_ms);
+}
+
+/**
+  * @brief 执行与硬件安全策略一致的寻限保护停机。
+  * @note 3Pin属于MCU抱闸硬件，保护触发后只尝试一次0RPM，不等待ACK，随后
+  *       立即闭合抱闸并进入ERROR。Chassis保持已实测的零速ACK、停稳和最终
+  *       位置读取流程，不改变原有行为。
+  */
+static void TSDA_AppHandleHomingProtectionError(TSDA_AppError error, uint32_t now_ms)
+{
+	if (tsda_config.brake_control == TSDA_BRAKE_CONTROL_MCU)
 	{
-		tsda_app.pending_error = TSDA_APP_ERROR_HOME_TIMEOUT;
+		if (TSDA_SetTargetSpeedRpm(&tsda_app.servo, 0) == TSDA_OK)
+			tsda_status.tx_count++;
+		tsda_status.commanded_speed_rpm = 0;
+		TSDA_AppEnterError(error, now_ms);
+	}
+	else
+	{
+		tsda_app.pending_error = error;
 		TSDA_AppSetState(TSDA_APP_SEND_HOME_STOP, now_ms);
 	}
 }
@@ -1021,6 +1207,10 @@ static void TSDA_AppEnterError(TSDA_AppError error, uint32_t now_ms)
 			tsda_status.tx_count++;
 		tsda_status.commanded_speed_rpm = 0;
 	}
+
+	/* 3Pin 异常停机不等待0RPM ACK，也不走正常200ms停机序列；
+	 * 补发0RPM后立即闭合 MCU 抱闸并锁存 ERROR。 */
+	TSDA_AppSetBrakeRelease(0U);
 
 	tsda_status.error_code = error;
 	tsda_status.ready = 0U;

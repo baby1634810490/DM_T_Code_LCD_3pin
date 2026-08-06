@@ -27,6 +27,7 @@
 #include "bsp_fdcan.h"
 #include "driver_motor.h"
 #include "driver_power.h"
+#include "main.h"
 
 /* Exported variables ------------------------------------------------------ */
 extern uint8_t remoteFlag;
@@ -46,6 +47,39 @@ static uint8_t TSDA_FDCAN1_SendAdapter(uint32_t can_id, const uint8_t* data, uin
 	(void)user;
 	return FDCAN1_Send_Msg(data, len, can_id, FDCAN_STANDARD_ID);
 }
+
+/** @brief 读取3Pin上限位。硬件定义为PD7高电平有效。 */
+static uint8_t TSDA_ReadUpperLimitAdapter(void* user)
+{
+	(void)user;
+	return (HAL_GPIO_ReadPin(TSDA_UPPER_LIMIT_GPIO_Port,
+	                         TSDA_UPPER_LIMIT_Pin) == GPIO_PIN_SET) ? 1U : 0U;
+}
+
+/** @brief 读取3Pin下限位。硬件定义为PB10高电平有效，仅用于状态观察。 */
+static uint8_t TSDA_ReadLowerLimitAdapter(void* user)
+{
+	(void)user;
+	return (HAL_GPIO_ReadPin(TSDA_LOWER_LIMIT_GPIO_Port,
+	                         TSDA_LOWER_LIMIT_Pin) == GPIO_PIN_SET) ? 1U : 0U;
+}
+
+/** @brief 控制3Pin抱闸：PE15高电平释放，低电平闭合。 */
+static void TSDA_WriteBrakeReleaseAdapter(uint8_t release, void* user)
+{
+	(void)user;
+	HAL_GPIO_WritePin(TSDA_BRAKE_RELEASE_GPIO_Port,
+	                  TSDA_BRAKE_RELEASE_Pin,
+	                  (release != 0U) ? GPIO_PIN_SET : GPIO_PIN_RESET);
+}
+
+/* 板级层只描述本板 IO 接线，不包含TSDA协议或状态机策略。Chassis Profile会忽略这些回调。 */
+static const TSDA_BoardIo tsdaBoardIo = {
+	TSDA_ReadUpperLimitAdapter,
+	TSDA_ReadLowerLimitAdapter,
+	TSDA_WriteBrakeReleaseAdapter,
+	NULL
+};
 
 
 /* ----------------------- Function Implements ---------------------------- */
@@ -82,6 +116,7 @@ void MotorTask(void* argument)
 				 */
 				TSDA_AppInit(TSDA_FDCAN1_SendAdapter,
 				             NULL,
+				             &tsdaBoardIo,
 				             osKernelGetTickCount());
 				tsdaAppStarted = ENABLE;
 			}

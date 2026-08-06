@@ -1,7 +1,7 @@
 /**
   ******************************************************************************
   * @file    app_tsda_servo.h
-  * @brief   TSDA Chassis 速度模式重写 - 位置闭环控制与上下限坐标系。
+  * @brief   TSDA统一速度模式App - 分硬件能力执行抱闸、寻限和位置闭环。
   *
   * 本阶段在寻限完成基础上建立 [0,-300]mm 用户坐标系。自动回位保持固定
   * 速度，ready=1后的done模式使用MCU浮点速度规划和零速保持回差。
@@ -52,7 +52,8 @@ typedef enum
 	TSDA_APP_SEND_ZERO_SPEED,               /*!< 使能前先写0x10=0RPM。 */
 	TSDA_APP_WAIT_ZERO_SPEED_ACK,           /*!< 等待零速命令ACK。 */
 	TSDA_APP_SEND_ENABLE,                   /*!< 写0x00=1使能伺服。 */
-	TSDA_APP_ENABLE_STABLE_WAIT,            /*!< 等待Chassis驱动器使能和抱闸联动稳定。 */
+	TSDA_APP_ENABLE_STABLE_WAIT,            /*!< 等待驱动器使能后的基础稳定时间。 */
+	TSDA_APP_BRAKE_RELEASE_SETTLE_WAIT,     /*!< 3Pin释放抱闸后的2000ms机械稳定窗口。 */
 	TSDA_APP_SEND_HOME_LIMIT_CHECK,         /*!< 运动前先读取一次0x58。 */
 	TSDA_APP_WAIT_HOME_LIMIT_CHECK,         /*!< 等待初始限位状态。 */
 	TSDA_APP_SEND_HOME_START_POSITION,      /*!< 读取寻限起点E8/E9。 */
@@ -63,10 +64,11 @@ typedef enum
 	TSDA_APP_WAIT_HOME_STABLE,              /*!< 停止后等待50ms机械稳定。 */
 	TSDA_APP_SEND_HOME_ZERO_POSITION,       /*!< 停止后重新读取E8/E9。 */
 	TSDA_APP_WAIT_HOME_ZERO_POSITION,       /*!< 保存软件零点或在保护停止后进入ERROR。 */
-	TSDA_APP_HOME_MOVE_RETURN,              /*!< 固定100RPM向-100移动，停稳后置ready。 */
+	TSDA_APP_HOME_MOVE_RETURN,              /*!< 固定200RPM向-100移动，停稳后置ready。 */
 	TSDA_APP_DONE,                          /*!< done模式：3ms三相周期执行PVP规划。 */
 	TSDA_APP_SEND_ZERO_BEFORE_DISABLE,      /*!< 外部请求失能时先写0RPM。 */
 	TSDA_APP_WAIT_ZERO_BEFORE_DISABLE_ACK,  /*!< 确认零速命令后再失能。 */
+	TSDA_APP_WAIT_BRAKE_ENGAGE,             /*!< 3Pin闭合抱闸后等待200ms再失能。 */
 	TSDA_APP_SEND_DISABLE,                  /*!< 写0x00=0失能。 */
 	TSDA_APP_DISABLED,                      /*!< 已失能，等待新的使能请求。 */
 	TSDA_APP_ERROR                          /*!< 锁存错误，等待重新初始化。 */
@@ -77,6 +79,7 @@ typedef enum
 {
 	TSDA_APP_ERROR_NONE = 0U,      /*!< 无错误。 */
 	TSDA_APP_ERROR_SEND,           /*!< 板级 CAN 发送适配器返回失败。 */
+	TSDA_APP_ERROR_BOARD_IO,       /*!< 当前能力配置要求的板级 IO 回调未注入。 */
 	TSDA_APP_ERROR_ACK_TIMEOUT,    /*!< 初始化命令达到最大重试次数仍无匹配回包。 */
 	TSDA_APP_ERROR_HOME_TIMEOUT,   /*!< 寻限达到90s仍未触发上限。 */
 	TSDA_APP_ERROR_HOME_TRAVEL,    /*!< 寻限累计达到300mm仍未触发上限。 */
@@ -86,6 +89,18 @@ typedef struct
 {
 	uint8_t servo_enable; /*!< 1=请求使能并重新寻限，0=先零速再失能。 */
 } TSDA_Command;
+
+/** @brief 3Pin 板级 IO 适配接口；Chassis 配置不会调用这些函数。 */
+typedef uint8_t (*TSDA_ReadDigitalInput)(void* user);
+typedef void (*TSDA_WriteBrakeRelease)(uint8_t release, void* user);
+
+typedef struct
+{
+	TSDA_ReadDigitalInput read_upper_limit; /*!< 返回1表示板级上限位有效。 */
+	TSDA_ReadDigitalInput read_lower_limit; /*!< 返回1表示板级下限位有效。 */
+	TSDA_WriteBrakeRelease write_brake_release; /*!< 1=释放抱闸，0=闭合抱闸。 */
+	void* user;                             /*!< 原样传给三个板级回调。 */
+} TSDA_BoardIo;
 
 /**
   * @brief FreeMASTER 可直接观察的状态与诊断快照。
@@ -109,8 +124,9 @@ typedef struct
 	uint8_t online;                      /*!< 启动阶段收到匹配E3回包后锁存为1。 */
 	uint8_t servo_enabled;               /*!< App完成使能稳定期后置1，失能后清0。 */
 	uint8_t ready;                       /*!< 正常目标控制开放标志，寻限建立零点后置1。 */
-	uint8_t upper_limit_active;          /*!< 0x58 data[3]归一化结果：1=上限触发。 */
-	uint8_t lower_limit_active;          /*!< 0x58 data[4]归一化结果：1=下限触发。 */
+	uint8_t upper_limit_active;          /*!< 统一上限状态：来自板级GPIO或0x58，1=触发。 */
+	uint8_t lower_limit_active;          /*!< 统一下限状态：来自板级GPIO或0x58，1=触发。 */
+	uint8_t brake_release_command;       /*!< MCU抱闸命令快照：1=释放，0=闭合/驱动器自控。 */
 	uint8_t homing_done;                 /*!< 最终零点位置读取并保存成功后置1。 */
 	uint8_t run_send_phase;              /*!< 三相节拍索引，按0、1、2循环。 */
 	uint8_t motion_hold_active;           /*!< 1=处于2mm进入、3mm退出的零速保持。 */
@@ -144,7 +160,10 @@ extern volatile TSDA_SlideFeedback tsda_slide_feedback;
   * @param send_user 原样传给发送适配器的上下文。
   * @param now_ms 当前单调递增毫秒时刻。
   */
-void TSDA_AppInit(TSDA_SendFunc send, void* send_user, uint32_t now_ms);
+void TSDA_AppInit(TSDA_SendFunc send,
+                  void* send_user,
+                  const TSDA_BoardIo* board_io,
+                  uint32_t now_ms);
 
 /** @brief 由1ms MotorTask调用一次，推进非阻塞状态机和三相节拍。 */
 void TSDA_AppUpdate(uint32_t now_ms);
