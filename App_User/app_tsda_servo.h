@@ -27,7 +27,7 @@ extern "C" {
 
 /* 位置闭环控制参数 */
 #define TSDA_APP_SOFT_LOWER_LIMIT_MM      (300)   /*!< 软件下限距离(mm)，上限为0，下限为-300。 */
-#define TSDA_APP_HOME_RETURN_SPEED_RPM    (100)   /*!< 建零后固定速度回到-100mm。 */
+#define TSDA_APP_HOME_RETURN_SPEED_RPM    (200)   /*!< 建零后固定速度回到-100mm。 */
 #define TSDA_APP_POSITION_TOLERANCE_MM    (2)     /*!< 自动回位到位容差(mm)。 */
 #define TSDA_APP_STOP_SPEED_RPM           (2)     /*!< 自动回位停稳E4阈值。 */
 #define TSDA_APP_INITIAL_TARGET_MM        (-100)  /*!< 寻限完成后自动下移100mm的目标位置。 */
